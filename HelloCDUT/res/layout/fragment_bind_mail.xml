@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ep_white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_medium_margin"
+        android:layout_marginRight="@dimen/layout_medium_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin">
+
+        <ImageView
+            android:layout_width="@dimen/icon_small_size"
+            android:layout_height="@dimen/icon_small_size"
+            android:contentDescription="@string/app_name"
+            android:gravity="center_vertical"
+            android:src="@drawable/ic_mail_small" />
+
+        <com.emptypointer.hellocdut.widget.ClearableEditText
+            android:id="@+id/editText_email"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/layout_medium_margin"
+            android:layout_marginRight="@dimen/layout_small_margin"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/str_mail"
+            android:singleLine="true"
+            android:textSize="@dimen/font_medium_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/layout_medium_margin"
+        android:layout_marginRight="@dimen/layout_medium_margin"
+        android:layout_marginTop="@dimen/layout_small_margin"
+        android:background="@color/color_ep_deep_gray" />
+
+    <Button
+        android:id="@+id/button_commit"
+        style="@style/ep_blue_button_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_medium_margin"
+        android:layout_marginRight="@dimen/layout_medium_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/str_confirm_bind" />
+
+</LinearLayout>

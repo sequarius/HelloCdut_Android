@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/button_return"
+        android:layout_width="wrap_content"
+        android:background="@drawable/tab_indicator_ab_actionbar"
+        android:layout_height="match_parent"
+        android:paddingRight="@dimen/layout_small_margin"
+        android:src="@drawable/ic_actionbar_return" />
+
+    <com.emptypointer.hellocdut.widget.ClearableEditText
+        android:id="@+id/editText_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:drawablePadding="@dimen/layout_small_margin"
+        android:drawableRight="@drawable/ic_cancel"
+        android:drawableLeft="@drawable/ic_actionbar_search"
+        android:hint="@string/str_query_book"
+        android:imeOptions="actionSearch"
+        android:inputType="textFilter"
+        android:textColor="@color/color_ep_apple_blue" />
+
+</LinearLayout>

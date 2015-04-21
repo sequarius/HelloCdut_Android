@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="building_name_array">
+        <item>第一教学楼</item>
+        <item>第二教学楼</item>
+        <item>第三教学楼</item>
+        <item>第四教学楼</item>
+        <item>第五教学楼</item>
+        <item>第六教学楼A区</item>
+        <item>第六教学楼B区</item>
+        <item>第六教学楼C区</item>
+        <item>第七教学楼</item>
+        <item>第八教学楼</item>
+        <item>第九教学楼</item>
+        <item>艺术中心</item>
+    </string-array>
+    <string-array name="trade_query_type">
+        <item>存款信息</item>
+        <item>圈存信息</item>
+        <item>消费信息</item>
+        <item>交易统计</item>
+    </string-array>
+    <string-array name="course_info">
+        <item>课程： %1$s</item>
+        <item>教室： %1$s</item>
+        <item>教师： %1$s</item>
+        <item>时间： %1$s</item>
+        <item>周数： %1$s</item>
+        <item>重课： %1$s</item>
+        <item>备注： %1$s</item>
+
+    </string-array>
+    <string-array name="week_array">
+        <item></item>
+        <item>星期一</item>
+        <item>星期二</item>
+        <item>星期三</item>
+        <item>星期四</item>
+        <item>星期五</item>
+        <item>星期六</item>
+        <item>星期日</item>
+    </string-array>
+
+    <integer-array name="google_colors">
+        <item>@color/color_ep_blue</item>
+        <item>@color/color_ep_white</item>
+    </integer-array>
+
+</resources>

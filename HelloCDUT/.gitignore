@@ -1,0 +1,9 @@
+/bin/
+/META-INF/
+/build.properties
+/lint.xml
+/gen
+/project.properties
+/proguard-project.txt
+/assets/
+/proguard/

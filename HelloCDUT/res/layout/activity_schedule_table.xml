@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textview_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_empty"
+        android:background="@drawable/course_text_view_bg" />
+
+
+    <TextView
+        android:id="@+id/textview_monday_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_monday"
+        android:layout_toRightOf="@id/textview_empty"
+        android:background="@drawable/course_text_view_bg" />
+
+
+    <TextView
+        android:id="@+id/textview_tuesday_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_tuesday"
+        android:layout_toRightOf="@id/textview_monday_course"
+        android:background="@drawable/course_text_view_bg" />
+
+
+    <TextView
+        android:id="@+id/textview_wednesday_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_wednesday"
+        android:layout_toRightOf="@id/textview_tuesday_course"
+        android:background="@drawable/course_text_view_bg" />
+
+
+    <TextView
+        android:id="@+id/textview_thursday_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_thursday"
+        android:layout_toRightOf="@id/textview_wednesday_course"
+        android:background="@drawable/course_text_view_bg" />
+
+    <TextView
+        android:id="@+id/textview_friday_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_friday"
+        android:layout_toRightOf="@id/textview_thursday_course"
+        android:background="@drawable/course_text_view_bg" />
+
+    <TextView
+        android:id="@+id/textview_saturday_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_saturday"
+        android:layout_toRightOf="@id/textview_friday_course"
+        android:background="@drawable/course_text_view_bg" />
+
+
+    <TextView
+        android:id="@+id/textview_sunday_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_sunday"
+        android:layout_toRightOf="@id/textview_saturday_course"
+        android:background="@drawable/course_table_last_colum" />
+
+    <ScrollView
+        android:id="@+id/scrollview_body"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_empty"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/relativelayout_body"></RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

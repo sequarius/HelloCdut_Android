@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.emptypointer.hellocdut.MainActivity">
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_actionbar_search"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/str_query_book" />
+
+
+</menu>
