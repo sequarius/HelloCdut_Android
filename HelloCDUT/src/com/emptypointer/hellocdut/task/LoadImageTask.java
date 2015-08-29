@@ -49,9 +49,8 @@ public class LoadImageTask extends AsyncTask<Object, Void, Bitmap> {
                 return null;
             }
         }
-
-
     }
+
 
     protected void onPostExecute(Bitmap image) {
         if (image != null) {

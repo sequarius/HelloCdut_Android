@@ -402,6 +402,8 @@
     <string name="str_message_wrong_email_format">"非法邮箱：这似乎不是一个有效的邮箱地址欸 TAT "</string>
     <string name="str_grade_stastics">成绩统计</string>
     <string name="str_grade_stastics_message">平均学分绩点：%1$.2f\n平均绩点:%2$.2f</string>
+    <string name="str_edit_group_name">修改群名称</string>
+    <string name="str_tryto_find_passwd">尝试找回密码</string>
 
 
 </resources>

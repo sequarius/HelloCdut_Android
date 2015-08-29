@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.emptypointer.hellocdut"
+    android:versionCode="2015041401"
+    android:versionName="0.6.3" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="20" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
+    <application
+        android:name="com.emptypointer.hellocdut.customer.EPApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <receiver android:name="com.emptypointer.hellocdut.customer.EPUpdataBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+        <!-- 百度地图所需的service -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="X2MvHY9I5f9UtHUSebGK4QAl" />
+
+        <!-- Required. AppKey copied from Portal -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="empty#test" />
+        <!-- Required SDK核心功能 -->
+        <service
+            android:name="com.easemob.chat.EMChatService"
+            android:label="ChatService$NotifyService" />
+        <!-- EPservice -->
+        <service android:name="com.emptypointer.hellocdut.activity.CoreService" />
+        <!-- 开屏页activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 登陆activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.LoginActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 找回账号/密码activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.RetrieveActivity"
+            android:label="@string/str_retrieve" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.Retrieve" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 注册activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.RegisterActivity"
+            android:label="@string/str_register_new_user"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.Register" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 主activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.MainActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustNothing" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.MainActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 课程表activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.OldScheduleActivity"
+            android:label="@string/str_schedule" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 课程表activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.ScheduleActivity"
+            android:label="@string/str_schedule" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.Schedule" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 教务消息activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.AAONewsActivity"
+            android:label="@string/str_aao_news" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.AAONews" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 教务消息详情activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.AAONewsDetailActivity"
+            android:label="@string/str_aao_news" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.AAONewsDetail" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 关联账户管理activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.AccountManageActivity"
+            android:label="@string/str_relative_account" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.AccountManage" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 设置activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.SettingActivity"
+            android:label="@string/str_setting" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.Setting" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 用户资料activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.UserInfoActivity"
+            android:label="@string/str_my_info" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.UserInfo" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 考试管理activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.ExamManageActivity"
+            android:label="@string/str_exam" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.ExamManage" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 收藏管理activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.CollectionManageActivity"
+            android:label="@string/str_collection" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.CollectionManage" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 查詢activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.QueryActivity"
+            android:label="@string/str_query" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.Query" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 查詢成绩activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.QueryGradeActivity"
+            android:label="@string/str_query_grade" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.QueryGrade" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 查詢等级考试activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.QueryNationalExamActivity"
+            android:label="@string/str_query_national_exam" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.QueryNationalExam" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 查詢教室activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.QueryClassroomActivity"
+            android:label="@string/str_query_classroom_status" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.QueryClassroom" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 查詢短号activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.QueryTelActivity"
+            android:label="@string/str_query_tel_number"
+            android:windowSoftInputMode="stateVisible" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.QueryTel" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 查詢教学计划activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.QueryTeachPlanActivity"
+            android:label="@string/str_query_teach_plan" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.QueryTeach" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 添加联系人activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.AddContactActivity"
+            android:label="@string/str_add" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.AddContact" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 聊天activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.ChatActivity"
+            android:label="@string/str_chat" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.Chat" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 验证处理activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.InvitationManageActivity"
+            android:label="@string/str_invitation_apply" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.InvitationManage" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 转发activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.ForwardMessageActivity"
+            android:label="@string/forward" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.ForwardMessage" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 搜索activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.SearchActivity"
+            android:label="@string/str_search" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.Search" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 通話activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.VoiceCallActivity"
+            android:label="@string/str_search"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.VoiceCall" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 绑定activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.BindActivity"
+            android:label="@string/str_bind" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.Bind" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 修改用戶資料activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.ModifyInfoActivity"
+            android:label="@string/str_bind"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.ModifyInfo" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 設置詳情activity -->
+        <activity android:name="com.emptypointer.hellocdut.activity.SettingDetailActivity" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.SettingDetail" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 头像上传activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.UploadAvatarActivity"
+            android:label="@string/str_upload_avatar" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.UploadAvatar" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 群聊activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.GroupsActivity"
+            android:label="@string/str_group_chat" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.Groups" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 群聊詳情activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.GroupDetailsActivity"
+            android:label="@string/str_group_chat" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 群聊黑名單activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.GroupBlacklistActivity"
+            android:label="@string/str_group_chat" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 群聊選人加入activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.GroupPickContactsActivity"
+            android:label="@string/str_group_chat" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 修改密码activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.ModifyPasswordActivity"
+            android:label="@string/str_modify_password" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.ModifyPassword" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 图书馆activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.LibraryActivity"
+            android:label="@string/str_library" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.Library" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 定位activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.LocalActivity"
+            android:label="@string/attach_location" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.Local" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 黑名单activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.IgnoreListActivity"
+            android:label="@string/str_ignore_list" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.IgnoreList" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 一卡通activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.QueryCampusCardActivity"
+            android:label="@string/str_campus_card"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="com.emptypointer.action.CampusCard" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 一卡通查询详情activity -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.CampusQueryResultActivity"
+            android:label="@string/str_consumption_result" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 用户协议 -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.AgreementActivity"
+            android:label="@string/str_agreement" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 創建群組 -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.CreateGroupActivity"
+            android:label="@string/str_create_group" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 馆藏查询 -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.QueryBookActivity"
+            android:label="@string/str_query_book" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 用户资料卡 -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.UserInfoCardActivity"
+            android:label="@string/str_user_info" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 用户资料卡 -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.AddOnesActivity"
+            android:label="@string/str_more" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 引导页 -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.GuideActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 自定义的alertdialog -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.AlertDialog"
+            android:screenOrientation="portrait"
+            android:theme="@style/EPDialogStyle" />
+        <!-- 自定義的編輯欄 -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.EditActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible" />
+
+        <!-- 显示下载大图页面 -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.ShowBigImage"
+            android:screenOrientation="portrait" />
+        <!-- 下载文件 -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.ShowNormalFileActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 自定义的contextmenu -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.ContextMenu"
+            android:screenOrientation="portrait"
+            android:theme="@style/EPDialogStyle" />
+        <!-- 退出群组提示 -->
+        <activity
+            android:name="com.emptypointer.hellocdut.activity.ExitGroupDialog"
+            android:screenOrientation="portrait"
+            android:theme="@style/EPDialogStyle" />
+
+        <!-- ###################注册SDK使用的Activity###################### -->
+        <!-- 分享编辑页 -->
+        <activity
+            android:name="com.umeng.socialize.view.ShareActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.UMDialog"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+
+        <!-- ############ QQ空间和QQ SSO授权的Activity注册 ############ -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 100424468，如果你使用的公用账号，则不需要修改；否则修改成你在QQ开放平台申请的 APP ID -->
+                <data android:scheme="tencent100424468" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- ###################添加UmengAppkey###################### -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="54dde866fd98c55992000ab8" />
+
+        <!-- 开机自启动服务 -->
+        <receiver
+            android:name="com.easemob.chat.StartServiceReceiver"
+            android:label="InitService" >
+            <intent-filter android:priority="1000" >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

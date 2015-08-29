@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:background="@color/color_ep_white"
+        android:id="@+id/layout_nick_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true">
+
+        <TextView
+            android:id="@+id/textView_key"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/layout_medium_margin"
+            android:layout_marginLeft="@dimen/layout_large_margin"
+            android:layout_marginTop="@dimen/layout_medium_margin"
+            android:textSize="@dimen/font_medium_size" />
+
+        <TextView
+            android:gravity="right"
+            android:layout_toRightOf="@+id/textView_key"
+            android:layout_marginLeft="@dimen/layout_medium_margin"
+            android:id="@+id/textView_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/layout_large_margin"
+            android:textColor="@color/color_ep_font_gray" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_ep_white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/layout_medium_margin"
+            android:layout_marginRight="@dimen/layout_medium_margin"
+            android:background="@color/color_ep_gray" />
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/D:/temp_project/HelloCDUT/res/layout/item_user_info.xml -->

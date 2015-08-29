@@ -14,4 +14,5 @@
         android:interpolator="@android:anim/accelerate_interpolator"
         android:toAlpha="1.0" />
 
-</set><!-- From: file:/D:/temp_project/social_sdk_library_project/res/anim/umeng_socialize_shareboard_animation_in.xml -->
+</set>
+<!-- From: file:/D:/temp_project/social_sdk_library_project/res/anim/umeng_socialize_shareboard_animation_in.xml -->

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.emptypointer.hellocdut"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@color/color_ep_white"
+        android:clickable="true">
+
+        <com.emptypointer.hellocdut.widget.SwitchButton
+            android:id="@+id/switch_silence_in_class"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/layout_small_margin"
+            android:layout_marginLeft="@dimen/layout_large_margin"
+            android:layout_marginRight="@dimen/layout_large_margin"
+            android:layout_marginTop="@dimen/layout_small_margin"
+            android:text="@string/str_silence_in_class"
+            android:textSize="@dimen/font_medium_size"
+            app:frameDrawable="@drawable/switch_frame"
+            app:sliderDrawable="@drawable/selector_switch_slider"
+            app:stateDrawable="@drawable/selector_switch_state"
+            app:stateMaskDrawable="@drawable/switch_state_mask" />
+    </RelativeLayout>
+    <!-- 只是一个有边距的分割线 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_ep_white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/layout_medium_margin"
+            android:layout_marginRight="@dimen/layout_medium_margin"
+            android:background="@color/color_ep_gray" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_ep_white"
+        android:clickable="true">
+
+        <com.emptypointer.hellocdut.widget.SwitchButton
+            android:id="@+id/switch_silence_by_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/layout_small_margin"
+            android:layout_marginLeft="@dimen/layout_large_margin"
+            android:layout_marginRight="@dimen/layout_large_margin"
+            android:layout_marginTop="@dimen/layout_small_margin"
+            android:text="@string/str_silence_by_time"
+            android:textSize="@dimen/font_medium_size"
+            app:frameDrawable="@drawable/switch_frame"
+            app:sliderDrawable="@drawable/selector_switch_slider"
+            app:stateDrawable="@drawable/selector_switch_state"
+            app:stateMaskDrawable="@drawable/switch_state_mask" />
+    </RelativeLayout>
+    <!-- 只是一个有边距的分割线 -->
+
+</LinearLayout><!-- From: file:/D:/temp_project/HelloCDUT/res/layout/fragment_setting_silence.xml -->

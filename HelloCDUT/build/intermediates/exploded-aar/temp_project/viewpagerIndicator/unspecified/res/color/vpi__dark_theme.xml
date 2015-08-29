@@ -21,4 +21,5 @@
     <!--item android:state_activated="true" android:color="@color/vpi__bright_foreground_holo_dark"/-->
     <item android:color="@color/vpi__bright_foreground_holo_dark" />
     <!-- not selected -->
-</selector><!-- From: file:/D:/temp_project/viewpagerIndicator/res/color/vpi__dark_theme.xml -->
+</selector>
+<!-- From: file:/D:/temp_project/viewpagerIndicator/res/color/vpi__dark_theme.xml -->

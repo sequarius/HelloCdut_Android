@@ -201,7 +201,11 @@ public class ScheduleActivity extends BaseActivity {
         if (timeDiffer < 0) {
             return 0;
         }
+
         int week = (int) (timeDiffer / PRE_WEEK_TIME_MILLION) + 1;
+        if(week>mService.getMaxWeek()){
+            return mService.getMaxWeek();
+        }
         return week;
     }
 

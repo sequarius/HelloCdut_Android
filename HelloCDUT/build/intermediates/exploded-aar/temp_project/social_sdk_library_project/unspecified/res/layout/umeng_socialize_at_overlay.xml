@@ -10,4 +10,5 @@
     android:textColor="#ffffffff"
     android:textSize="50sp"
     android:textStyle="bold"
-    android:visibility="invisible" /><!-- From: file:/D:/temp_project/social_sdk_library_project/res/layout/umeng_socialize_at_overlay.xml -->
+    android:visibility="invisible" />
+<!-- From: file:/D:/temp_project/social_sdk_library_project/res/layout/umeng_socialize_at_overlay.xml -->

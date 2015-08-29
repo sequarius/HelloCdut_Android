@@ -6,4 +6,5 @@
         android:showAsAction="never"
         android:title="@string/action_settings" />
 
-</menu><!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/menu/main.xml -->
+</menu>
+<!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/menu/main.xml -->

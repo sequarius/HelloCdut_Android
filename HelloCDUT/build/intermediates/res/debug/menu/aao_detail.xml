@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_aao_tail_read_mode"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/str_read_mode" />
+    <item
+        android:id="@+id/action_aao_open_with_sytem_browser"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/str_open_with_sytem_browser" />
+    <item
+        android:id="@+id/action_aao_detail_share"
+        android:icon="@drawable/ic_share"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/str_share" />
+    <item
+        android:id="@+id/action_aao_detail_explain"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/str_explain" />
+
+</menu><!-- From: file:/D:/temp_project/HelloCDUT/res/menu/aao_detail.xml -->

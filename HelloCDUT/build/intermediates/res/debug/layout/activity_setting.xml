@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layout_message_and_notify_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/selector_white_btn_dress_with_layout"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/layout_medium_margin"
+            android:layout_marginLeft="@dimen/layout_large_margin"
+            android:layout_marginTop="@dimen/layout_medium_margin"
+            android:text="@string/str_message_and_notify"
+            android:textSize="@dimen/font_medium_size" />
+    </RelativeLayout>
+    <!-- 只是一个有边距的分割线 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_ep_white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/layout_medium_margin"
+            android:layout_marginRight="@dimen/layout_medium_margin"
+            android:background="@color/color_ep_gray" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_chat_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_white_btn_dress_with_layout"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/layout_medium_margin"
+            android:layout_marginLeft="@dimen/layout_large_margin"
+            android:layout_marginTop="@dimen/layout_medium_margin"
+            android:text="@string/str_chat"
+            android:textSize="@dimen/font_medium_size" />
+    </RelativeLayout>
+    <!-- 只是一个有边距的分割线 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_ep_white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/layout_medium_margin"
+            android:layout_marginRight="@dimen/layout_medium_margin"
+            android:background="@color/color_ep_gray" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_scilence_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_white_btn_dress_with_layout"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/layout_medium_margin"
+            android:layout_marginLeft="@dimen/layout_large_margin"
+            android:layout_marginTop="@dimen/layout_medium_margin"
+            android:text="@string/str_silence_mode"
+            android:textSize="@dimen/font_medium_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_account_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/selector_white_btn_dress_with_layout"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/layout_medium_margin"
+            android:layout_marginLeft="@dimen/layout_large_margin"
+            android:layout_marginTop="@dimen/layout_medium_margin"
+            android:text="@string/str_account"
+            android:textSize="@dimen/font_medium_size" />
+    </RelativeLayout>
+    <!-- 只是一个有边距的分割线 -->
+
+
+    <RelativeLayout
+        android:id="@+id/layout_feed_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/selector_white_btn_dress_with_layout"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/layout_medium_margin"
+            android:layout_marginLeft="@dimen/layout_large_margin"
+            android:layout_marginTop="@dimen/layout_medium_margin"
+            android:text="@string/str_feed_back"
+            android:textSize="@dimen/font_medium_size" />
+    </RelativeLayout>
+    <!-- 只是一个有边距的分割线 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_ep_white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/layout_medium_margin"
+            android:layout_marginRight="@dimen/layout_medium_margin"
+            android:background="@color/color_ep_gray" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_white_btn_dress_with_layout"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/layout_medium_margin"
+            android:layout_marginLeft="@dimen/layout_large_margin"
+            android:layout_marginTop="@dimen/layout_medium_margin"
+            android:text="@string/str_about"
+            android:textSize="@dimen/font_medium_size" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button_quit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_medium_margin"
+        android:layout_marginRight="@dimen/layout_medium_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/selector_btn_red_color"
+        android:text="@string/str_quit_current_account" />
+
+</LinearLayout><!-- From: file:/D:/temp_project/HelloCDUT/res/layout/activity_setting.xml -->

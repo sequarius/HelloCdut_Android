@@ -137,16 +137,6 @@
             </intent-filter>
         </activity>
 
-        <!-- 详细课程activity -->
-        <activity
-            android:name="com.emptypointer.hellocdut.activity.ScheduleDetailActivity"
-            android:label="@string/str_schedule_detail">
-            <intent-filter>
-                <action android:name="com.emptypointer.action.Schedule_Detail" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
 
         <!-- 教务消息activity -->
         <activity
@@ -534,16 +524,6 @@
             android:name="com.emptypointer.hellocdut.activity.GuideActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- 合作者acitivity -->
-        <!-- 撥號 -->
-        <activity
-            android:name="com.emptypointer.userinterface.addones.strawberryjam.dialog.MainActivity"
-            android:label="@string/app_name">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

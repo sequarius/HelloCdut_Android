@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><selector xmlns:android="http://schemas.android.com/apk/res/android">    <item android:drawable="@color/color_ep_deep_gray" android:state_pressed="true" />    <item android:drawable="@android:color/white" /></selector><!-- From: file:/D:/temp_project/HelloCDUT/res/drawable/context_menu_item_bg.xml -->

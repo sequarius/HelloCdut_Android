@@ -4,4 +4,5 @@
     android:fromXDelta="0.0%"
     android:fromYDelta="100.0%"
     android:toXDelta="0.0%"
-    android:toYDelta="0.0%" /><!-- From: file:/D:/temp_project/social_sdk_library_project/res/anim/umeng_socialize_slide_in_from_bottom.xml -->
+    android:toYDelta="0.0%" />
+<!-- From: file:/D:/temp_project/social_sdk_library_project/res/anim/umeng_socialize_slide_in_from_bottom.xml -->

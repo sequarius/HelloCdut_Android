@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ep_white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_query_type"
+            android:textSize="@dimen/font_medium_size" />
+
+        <Spinner
+            android:id="@+id/spinner_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/trade_query_type" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_start_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/layout_small_margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_start_date"
+            android:textSize="@dimen/font_medium_size" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView_start_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/layout_small_margin"
+                    android:textSize="@dimen/font_medium_size" />
+
+                <ImageView
+                    android:layout_width="@dimen/icon_small_size"
+                    android:layout_height="@dimen/icon_small_size"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_date" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="@dimen/layout_small_margin"
+                android:layout_marginTop="-1dp"
+                android:background="@color/color_ep_deep_gray" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_end_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_end_date"
+            android:textSize="@dimen/font_medium_size" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView_end_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/layout_small_margin"
+                    android:textSize="@dimen/font_medium_size" />
+
+                <ImageView
+                    android:layout_width="@dimen/icon_small_size"
+                    android:layout_height="@dimen/icon_small_size"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_date" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="@dimen/layout_small_margin"
+                android:layout_marginTop="-1dp"
+                android:background="@color/color_ep_deep_gray" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:text="@string/str_query" />
+
+</LinearLayout><!-- From: file:/D:/temp_project/HelloCDUT/res/layout/fragment_trade_query.xml -->

@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.emptypointer.hellocdut.MainActivity">
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_actionbar_search"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="搜索" />
+    <item
+        android:id="@+id/action_add"
+        android:icon="@drawable/ic_actionbar_add"
+        android:orderInCategory="200"
+        android:showAsAction="always"
+        android:title="添加好友" />
+
+</menu><!-- From: file:/D:/temp_project/HelloCDUT/res/menu/main.xml -->

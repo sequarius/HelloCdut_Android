@@ -6,4 +6,5 @@
     android:background="#eeeeee"
     android:paddingLeft="8dp"
     android:text="header"
-    android:id="@+id/header" /><!-- From: file:/D:/temp_project/social_sdk_library_project/res/layout/umeng_socialize_composer_header.xml -->
+    android:id="@+id/header" />
+<!-- From: file:/D:/temp_project/social_sdk_library_project/res/layout/umeng_socialize_composer_header.xml -->

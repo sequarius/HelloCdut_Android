@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/values/colors.xml -->
-    <eat-comment />
+    <eat-comment/>
     <color name="ampm_text_color">#8c8c8c</color>
     <color name="blue">#33b5e5</color>
     <color name="calendar_header">#999999</color>
@@ -17,7 +17,7 @@
     <color name="transparent_black">#7F000000</color>
     <color name="white">#ffffff</color>
     <!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/values/dimens.xml -->
-    <eat-comment />
+    <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="ampm_label_size">16sp</dimen>
@@ -49,20 +49,20 @@
     <dimen name="year_label_height">64dp</dimen>
     <dimen name="year_label_text_size">22dp</dimen>
     <!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/values/strings.xml -->
-    <eat-comment />
+    <eat-comment/>
     <string name="action_settings">Settings</string>
     <!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/values/dimens.xml -->
-    <eat-comment />
+    <eat-comment/>
     <item format="float" name="ampm_circle_radius_multiplier" type="string">0.19</item>
     <!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/values/strings.xml -->
-    <eat-comment />
+    <eat-comment/>
     <string name="app_name">RadialClock</string>
     <!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/values/dimens.xml -->
-    <eat-comment />
+    <eat-comment/>
     <item format="float" name="circle_radius_multiplier" type="string">0.82</item>
     <item format="float" name="circle_radius_multiplier_24HourMode" type="string">0.85</item>
     <!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/values/strings.xml -->
-    <eat-comment />
+    <eat-comment/>
     <string name="day_of_week_label_typeface">sans-serif</string>
     <string name="day_picker_description">Month grid of days</string>
     <string name="deleted_key"><ns1:g example="4" id="key">%1$s</ns1:g> deleted</string>
@@ -72,12 +72,12 @@
     <string name="item_is_selected"><ns1:g example="2013" id="item">%1$s</ns1:g> selected</string>
     <string name="minute_picker_description">Minutes circular slider</string>
     <!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/values/dimens.xml -->
-    <eat-comment />
+    <eat-comment/>
     <item format="float" name="numbers_radius_multiplier_inner" type="string">0.60</item>
     <item format="float" name="numbers_radius_multiplier_normal" type="string">0.81</item>
     <item format="float" name="numbers_radius_multiplier_outer" type="string">0.83</item>
     <!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/values/strings.xml -->
-    <eat-comment />
+    <eat-comment/>
     <string name="radial_numbers_typeface">sans-serif</string>
     <string name="sans_serif">sans-serif</string>
     <string name="select_day">Select month and day</string>
@@ -85,19 +85,18 @@
     <string name="select_minutes">Select minutes</string>
     <string name="select_year">Select year</string>
     <!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/values/dimens.xml -->
-    <eat-comment />
+    <eat-comment/>
     <item format="float" name="selection_radius_multiplier" type="string">0.16</item>
     <item format="float" name="text_size_multiplier_inner" type="string">0.14</item>
     <item format="float" name="text_size_multiplier_normal" type="string">0.17</item>
     <item format="float" name="text_size_multiplier_outer" type="string">0.11</item>
     <!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/values/strings.xml -->
-    <eat-comment />
+    <eat-comment/>
     <string name="time_placeholder">--</string>
     <string name="time_separator">:</string>
     <string name="year_picker_description">Year list</string>
     <!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/values/styles.xml -->
-    <eat-comment />
-
+    <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
@@ -105,20 +104,16 @@
             backward-compatibility can go here.
         -->
     </style>
-
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-
     <style name="ampm_label">
         <item name="android:textSize">@dimen/ampm_label_size</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">@color/ampm_text_color</item>
         <item name="android:textStyle">bold</item>
     </style>
-
-    <style name="day_of_week_label_condensed" />
-
+    <style name="day_of_week_label_condensed"/>
     <style name="time_label">
         <item name="android:textSize">@dimen/time_label_size</item>
         <item name="android:textColor">@color/numbers_text_color</item>

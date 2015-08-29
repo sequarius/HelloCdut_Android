@@ -10,4 +10,5 @@
         android:pivotY="50%"
         android:fillAfter="false"
         android:duration="400" />
-</set><!-- From: file:/D:/temp_project/social_sdk_library_project/res/anim/shake_umeng_socialize_scrshot_dlg.xml -->
+</set>
+<!-- From: file:/D:/temp_project/social_sdk_library_project/res/anim/shake_umeng_socialize_scrshot_dlg.xml -->

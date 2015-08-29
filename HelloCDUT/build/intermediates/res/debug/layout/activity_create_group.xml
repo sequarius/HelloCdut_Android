@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#eee"
+    android:orientation="vertical">
+
+    <com.emptypointer.hellocdut.widget.ClearableEditText
+        android:id="@+id/editText_group_name"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginLeft="@dimen/layout_medium_margin"
+        android:layout_marginRight="@dimen/layout_medium_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@color/color_ep_white"
+        android:hint="@string/str_group_name"
+        android:maxLength="16"
+        android:paddingBottom="@dimen/layout_xsmall_margin"
+        android:paddingLeft="@dimen/font_small_size"
+        android:paddingTop="@dimen/layout_xsmall_margin"
+        android:singleLine="true"
+        android:textSize="@dimen/font_medium_size" />
+
+    <EditText
+        android:id="@+id/editText_group_introduction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_medium_margin"
+        android:layout_marginRight="@dimen/layout_medium_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@color/color_ep_white"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="@string/str_group_introduction"
+        android:lines="5"
+        android:maxLength="140"
+        android:paddingBottom="@dimen/layout_xsmall_margin"
+        android:paddingLeft="@dimen/font_small_size"
+        android:paddingTop="@dimen/layout_xsmall_margin"
+        android:textSize="@dimen/font_medium_size">
+
+        <requestFocus />
+    </EditText>
+
+    <LinearLayout
+        android:id="@+id/layout_public_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_medium_margin"
+        android:layout_marginRight="@dimen/layout_medium_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/selector_white_btn_dress_with_layout"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/layout_medium_margin"
+            android:layout_marginLeft="@dimen/layout_small_margin"
+            android:layout_marginTop="@dimen/layout_medium_margin"
+            android:layout_weight="1"
+            android:text="@string/str_open_group"
+            android:textSize="@dimen/font_medium_size" />
+
+        <CheckBox
+            android:id="@+id/checkbox_public_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/layout_small_margin"
+            android:layout_weight="0"
+            android:checked="true"
+            android:clickable="false" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_invitation_by_menber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_medium_margin"
+        android:layout_marginRight="@dimen/layout_medium_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/selector_white_btn_dress_with_layout"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/layout_medium_margin"
+            android:layout_marginLeft="@dimen/layout_small_margin"
+            android:layout_marginTop="@dimen/layout_medium_margin"
+            android:layout_weight="1"
+            android:text="@string/str_menber_invitable"
+            android:textColor="#333"
+            android:textSize="@dimen/font_medium_size" />
+
+        <CheckBox
+            android:id="@+id/cheakBox_invitation_by_menber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/layout_small_margin"
+            android:layout_weight="0" />
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/D:/temp_project/HelloCDUT/res/layout/activity_create_group.xml -->

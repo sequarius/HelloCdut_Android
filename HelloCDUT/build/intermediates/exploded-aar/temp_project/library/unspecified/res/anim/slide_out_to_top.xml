@@ -17,4 +17,5 @@
 <translate xmlns:android="http://schemas.android.com/apk/res/android"
     android:duration="@android:integer/config_longAnimTime"
     android:fromYDelta="0"
-    android:toYDelta="-100%p" /><!-- From: file:/D:/temp_project/library/res/anim/slide_out_to_top.xml -->
+    android:toYDelta="-100%p" />
+<!-- From: file:/D:/temp_project/library/res/anim/slide_out_to_top.xml -->

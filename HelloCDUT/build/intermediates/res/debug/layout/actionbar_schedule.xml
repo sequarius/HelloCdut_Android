@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/layout_back"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:clickable="true"
+
+        android:background="@drawable/tab_indicator_ab_actionbar">
+
+        <ImageView
+            android:id="@+id/button_return"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_actionbar_return" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/color_ep_white"
+            android:text="@string/str_schedule"
+            android:layout_marginRight="@dimen/layout_small_margin"
+            android:textSize="@dimen/font_medium_size" />
+    </LinearLayout>
+
+    <Spinner
+        android:layout_marginLeft="@dimen/layout_medium_margin"
+        android:layout_gravity="center"
+        android:id="@+id/action_bar_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/spinner_background_ab_actionbar"></Spinner>
+
+</LinearLayout><!-- From: file:/D:/temp_project/HelloCDUT/res/layout/actionbar_schedule.xml -->

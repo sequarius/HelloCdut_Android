@@ -33,7 +33,7 @@ public class SplashActivity extends Activity {
     private LinearLayout mLayoutText;
 
     // 开屏等待时长
-    private static final int SLEEP_TIME = 2000;
+    private static final int SLEEP_TIME = 1300;
 
     @Override
     protected void onCreate(Bundle arg0) {
@@ -43,7 +43,7 @@ public class SplashActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
         mLayout = (RelativeLayout) findViewById(R.id.layout_root);
-        new loadTextThread().start();
+//        new loadTextThread().start();
         AlphaAnimation animation = new AlphaAnimation(0.3f, 1.0f);
         animation.setDuration(1500);
         mLayout.startAnimation(animation);

@@ -12,4 +12,5 @@
         android:layout_centerInParent="true"
         android:visibility="gone"
         android:indeterminateOnly="true" />
-</RelativeLayout><!-- From: file:/D:/temp_project/social_sdk_library_project/res/layout/umeng_socialize_facebook_login_activity_layout.xml -->
+</RelativeLayout>
+<!-- From: file:/D:/temp_project/social_sdk_library_project/res/layout/umeng_socialize_facebook_login_activity_layout.xml -->

@@ -128,6 +128,7 @@ public class AAONewsDetailActivity extends BaseActivity {
         settings.setLoadWithOverviewMode(true);
         settings.setDisplayZoomControls(true);
 
+
         // mWebView.setWebViewClient(new WebViewClient() {
         //
         //

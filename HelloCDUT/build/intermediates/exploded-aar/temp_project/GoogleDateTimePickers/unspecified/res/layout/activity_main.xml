@@ -13,4 +13,5 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
 
-</RelativeLayout><!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/layout/activity_main.xml -->
+</RelativeLayout>
+<!-- From: file:/D:/temp_project/GoogleDateTimePickers/res/layout/activity_main.xml -->

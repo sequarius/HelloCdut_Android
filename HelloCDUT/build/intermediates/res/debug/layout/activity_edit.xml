@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#f2f0eb"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/str_edit_group_name"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/selector_btn_blue_dress_with_layout"
+            android:onClick="save"
+            android:text="保存"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/edittext"
+        android:textSize="18sp" />
+
+</LinearLayout>
+<!-- From: file:/D:/temp_project/HelloCDUT/res/layout/activity_edit.xml -->
