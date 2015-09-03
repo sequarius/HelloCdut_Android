@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:color="@color/color_ep_deep_blue" android:state_pressed="true" />
+    <item android:color="@color/color_ep_deep_gray" android:state_enabled="false" />
     <item android:color="@color/color_ep_blue" />
 </selector>
 <!-- From: file:/D:/temp_project/HelloCDUT/res/color/selector_color_blue_change.xml -->

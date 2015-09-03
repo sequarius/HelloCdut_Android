@@ -294,85 +294,7 @@ public class LoginActivity extends NoBackBasaActivity implements
                 // 开始获取好友列表
                 publishProgress(1);
 
-                List<BasicNameValuePair> paramUserList = new ArrayList<BasicNameValuePair>();
-                paramUserList.add(new BasicNameValuePair("action",
-                        "getUserFriendList"));
-                paramUserList.add(new BasicNameValuePair("user_name",
-                        EPSecretService.encryptByPublic(application
-                                .getUserName())));
-                paramUserList
-                        .add(new BasicNameValuePair("user_login_token",
-                                EPSecretService.encryptByPublic(application
-                                        .getToken())));
-
-                String str = EPHttpService
-                        .customerPostString(
-                                GlobalVariables.SERVICE_HOST_USER_SYSTEM,
-                                paramUserList);
-                JSONObject object = JSONObject.parseObject(str);
-
-                result = object.getBooleanValue("result");
-                if (!result) {
-                    mMessage = object.getString("message");
-                    return false;
-                }
-                Map<String, User> userlist = new HashMap<String, User>();
-                JSONArray array = object.getJSONArray("friendList");
-                if (array != null) {
-                    for (int i = 0; i < array.size(); i++) {
-                        JSONObject objUser = array.getJSONObject(i);
-                        User user = new User();
-                        String userName = objUser.getString("user_name");
-                        if (userName != null) {
-                            user.setUsername(userName);
-                        } else {
-                            break;
-                        }
-                        String nickName = objUser.getString("user_nick_name");
-
-                        if (nickName != null) {
-                            user.setNicKName(nickName);
-                        } else {
-                            user.setNicKName(userName);
-                        }
-                        String url = objUser.getString("user_avatar_url");
-                        if (url != null) {
-                            user.setImageURL(url);
-                        }
-                        String motto = objUser.getString("user_motto");
-                        if (motto != null) {
-                            user.setMotto(motto);
-                        }
-                        setUserHearder(nickName, user);
-                        userlist.put(userName, user);
-                    }
-                }
-                // for (String username : usernames) {
-                // Log.i(TAG, "username==" + username);
-                // User user = new User();
-                // user.setUsername(username);
-                // setUserHearder(username, user);
-                // userlist.put(username, user);
-                // }
-                // 添加user"申请与通知"
-                User newFriends = new User();
-                newFriends.setUsername(GlobalVariables.NEW_FRIENDS_USERNAME);
-                newFriends.setNicKName("申请与通知");
-                newFriends.setHeader("");
-                userlist.put(GlobalVariables.NEW_FRIENDS_USERNAME, newFriends);
-                // 添加"群聊"
-                User groupUser = new User();
-                groupUser.setUsername(GlobalVariables.GROUP_USERNAME);
-                groupUser.setNicKName("群聊");
-                groupUser.setHeader("");
-                userlist.put(GlobalVariables.GROUP_USERNAME, groupUser);
-
-                // 存入内存
-                application.setContactList(userlist);
-                // 存入db
-                UserDao dao = new UserDao(LoginActivity.this);
-                List<User> users = new ArrayList<User>(userlist.values());
-                dao.saveContactList(users);
+                if (getContactFromEP(application)) return false;
 
                 // 获取群聊列表(群聊里只有groupid和groupname的简单信息),sdk会把群组存入到内存和db中
 
@@ -384,6 +306,89 @@ public class LoginActivity extends NoBackBasaActivity implements
                 return false;
             }
 
+        }
+
+        private boolean getContactFromEP(EPApplication application) throws Exception {
+            boolean result;List<BasicNameValuePair> paramUserList = new ArrayList<BasicNameValuePair>();
+            paramUserList.add(new BasicNameValuePair("action",
+                    "getUserFriendList"));
+            paramUserList.add(new BasicNameValuePair("user_name",
+                    EPSecretService.encryptByPublic(application
+                            .getUserName())));
+            paramUserList
+                    .add(new BasicNameValuePair("user_login_token",
+                            EPSecretService.encryptByPublic(application
+                                    .getToken())));
+
+            String str = EPHttpService
+                    .customerPostString(
+                            GlobalVariables.SERVICE_HOST_USER_SYSTEM,
+                            paramUserList);
+            JSONObject object = JSONObject.parseObject(str);
+
+            result = object.getBooleanValue("result");
+            if (!result) {
+                mMessage = object.getString("message");
+                return true;
+            }
+            Map<String, User> userlist = new HashMap<String, User>();
+            JSONArray array = object.getJSONArray("friendList");
+            if (array != null) {
+                for (int i = 0; i < array.size(); i++) {
+                    JSONObject objUser = array.getJSONObject(i);
+                    User user = new User();
+                    String userName = objUser.getString("user_name");
+                    if (userName != null) {
+                        user.setUsername(userName);
+                    } else {
+                        break;
+                    }
+                    String nickName = objUser.getString("user_nick_name");
+
+                    if (nickName != null) {
+                        user.setNicKName(nickName);
+                    } else {
+                        user.setNicKName(userName);
+                    }
+                    String url = objUser.getString("user_avatar_url");
+                    if (url != null) {
+                        user.setImageURL(url);
+                    }
+                    String motto = objUser.getString("user_motto");
+                    if (motto != null) {
+                        user.setMotto(motto);
+                    }
+                    setUserHearder(nickName, user);
+                    userlist.put(userName, user);
+                }
+            }
+            // for (String username : usernames) {
+            // Log.i(TAG, "username==" + username);
+            // User user = new User();
+            // user.setUsername(username);
+            // setUserHearder(username, user);
+            // userlist.put(username, user);
+            // }
+            // 添加user"申请与通知"
+            User newFriends = new User();
+            newFriends.setUsername(GlobalVariables.NEW_FRIENDS_USERNAME);
+            newFriends.setNicKName("申请与通知");
+            newFriends.setHeader("");
+            userlist.put(GlobalVariables.NEW_FRIENDS_USERNAME, newFriends);
+            // 添加"群聊"
+            User groupUser = new User();
+            groupUser.setUsername(GlobalVariables.GROUP_USERNAME);
+            groupUser.setNicKName("群聊");
+            groupUser.setHeader("");
+            userlist.put(GlobalVariables.GROUP_USERNAME, groupUser);
+
+            // 存入内存
+            application.setContactList(userlist);
+            // 存入db
+            UserDao dao = new UserDao(LoginActivity.this);
+            List<User> users = new ArrayList<User>(userlist.values());
+            dao.saveContactList(users);
+            return false;
         }
 
         @Override

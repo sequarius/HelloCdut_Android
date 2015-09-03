@@ -83,9 +83,15 @@ public class BindCampusCardFragment extends Fragment {
         private String mMessage;
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mButtonRefresh.setClickable(false);
+        }
+
+        @Override
         protected Boolean doInBackground(Void... param) {
             isOnLoadCaptcha = true;
-            mButtonRefresh.setClickable(false);
+
             // TODO Auto-generated method stub
             List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
             String userName = EPSecretService.encryptByPublic(EPApplication
@@ -144,6 +150,9 @@ public class BindCampusCardFragment extends Fragment {
     private class CommitTask extends AsyncTask<Void, Void, Boolean> {
         private String mMessage;
         private ProgressDialog mDialog;
+        private String account;
+        private String password;
+        private String captcha;
 
         @Override
         protected void onPreExecute() {
@@ -151,6 +160,9 @@ public class BindCampusCardFragment extends Fragment {
             mDialog.setMessage(getString(R.string.str_str_loading_binding));
             mDialog.setCanceledOnTouchOutside(false);
             mDialog.show();
+            account = mEtUserName.getText().toString();
+            password = mEtPassWord.getText().toString();
+            captcha = mEtCaptcha.getText().toString();
         }
 
         @Override
@@ -163,9 +175,7 @@ public class BindCampusCardFragment extends Fragment {
             String token = EPSecretService.encryptByPublic(EPApplication
                     .getInstance().getToken());
 
-            String account = mEtUserName.getText().toString();
-            String password = mEtPassWord.getText().toString();
-            String captcha = mEtCaptcha.getText().toString();
+
             params.add(new BasicNameValuePair("user_login_token", token));
             params.add(new BasicNameValuePair("user_name", userName));
             params.add(new BasicNameValuePair("action", "bindCampus"));

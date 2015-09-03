@@ -21,7 +21,6 @@
 
         <com.emptypointer.hellocdut.widget.ClearableEditText
             android:id="@+id/editText_email"
-            android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/layout_medium_margin"
@@ -29,6 +28,7 @@
             android:background="@null"
             android:gravity="center_vertical"
             android:hint="@string/str_mail"
+            android:inputType="textEmailAddress"
             android:singleLine="true"
             android:textSize="@dimen/font_medium_size" />
     </LinearLayout>
@@ -40,6 +40,68 @@
         android:layout_marginRight="@dimen/layout_medium_margin"
         android:layout_marginTop="@dimen/layout_small_margin"
         android:background="@color/color_ep_deep_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_medium_margin"
+        android:layout_marginRight="@dimen/layout_medium_margin"
+        android:layout_marginTop="@dimen/layout_small_margin"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/layout_medium_margin"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="@dimen/icon_small_size"
+                    android:layout_height="@dimen/icon_small_size"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/app_name"
+                    android:gravity="center_vertical"
+                    android:src="@drawable/ic_password" />
+
+                <com.emptypointer.hellocdut.widget.ClearableEditText
+                    android:id="@+id/editText_token"
+                    android:layout_marginLeft="@dimen/layout_medium_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/layout_small_margin"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="验证码"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textSize="@dimen/font_medium_size" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginRight="@dimen/layout_medium_margin"
+                android:layout_marginTop="@dimen/layout_small_margin"
+                android:background="@color/color_ep_deep_gray" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button_get"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:text="发送验证码" />
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/button_commit"

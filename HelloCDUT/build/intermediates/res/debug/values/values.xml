@@ -660,6 +660,7 @@
     <string name="str_format_i_am">我是%1$s</string>
     <string name="str_format_insert_time">录入日期:%1$s</string>
     <string name="str_format_introduction">介绍：%1$s</string>
+    <string name="str_format_last_time">%1$s秒后重新发送</string>
     <string name="str_format_location">地点：%1$s</string>
     <string name="str_format_opetater">操作员：%1$s</string>
     <string name="str_format_publish">%1$s出版于%2$s</string>

@@ -24,6 +24,7 @@
     <string name="str_format_author">作者：%1$s</string>
     <string name="str_format_adone_version">当前版本：%1$s</string>
     <string name="str_format_introduction">介绍：%1$s</string>
+    <string name="str_format_last_time">%1$s秒后重新发送</string>
     <string name="str_updating_compelet">你好理工 ver:%1$s下载完成！</string>
     <string name="str_current_weak">本\n周</string>
     <string name="str_return_current_week">"返回本周"</string>
