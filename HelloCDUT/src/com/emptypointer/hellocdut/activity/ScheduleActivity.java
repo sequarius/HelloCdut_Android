@@ -251,6 +251,7 @@ public class ScheduleActivity extends BaseActivity {
             try {
                 String str = EPHttpService.customerPostString(
                         GlobalVariables.SERVICE_HOST_QUERYSYSTEM, params);
+                Log.i(TAG,str);
                 JSONObject object = JSONObject.parseObject(str);
                 mMessage = object.getString("message");
                 boolean result = object.getBooleanValue("result");

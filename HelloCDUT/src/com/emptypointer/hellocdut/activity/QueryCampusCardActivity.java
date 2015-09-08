@@ -280,6 +280,7 @@ public class QueryCampusCardActivity extends BaseActivity implements OnClickList
 
             imDialog.setMessage(getString(R.string.str_on_captcha_commit));
             imDialog.show();
+            mBtnRefresh.setClickable(false);
         }
 
         @Override
@@ -316,7 +317,6 @@ public class QueryCampusCardActivity extends BaseActivity implements OnClickList
         @Override
         protected Boolean doInBackground(String... param) {
             isOnLoadCaptcha = true;
-            mBtnRefresh.setClickable(false);
             // TODO Auto-generated method stub
             List<BasicNameValuePair> params = new ArrayList<BasicNameValuePair>();
             String userName = EPSecretService.encryptByPublic(EPApplication
@@ -325,7 +325,7 @@ public class QueryCampusCardActivity extends BaseActivity implements OnClickList
                     .getInstance().getToken());
             params.add(new BasicNameValuePair("user_login_token", token));
             params.add(new BasicNameValuePair("user_name", userName));
-            params.add(new BasicNameValuePair("action", "userLogin"));
+            params.add(new BasicNameValuePair("action", "campusUserLogin"));
             params.add(new BasicNameValuePair("captcha", param[0]));
             try {
                 String str = EPHttpService.customerPostString(

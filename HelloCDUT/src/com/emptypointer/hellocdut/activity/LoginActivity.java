@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -43,6 +44,7 @@ import com.emptypointer.hellocdut.utils.StringChecker;
 
 public class LoginActivity extends NoBackBasaActivity implements
         OnClickListener {
+    private static final String TAG = "LoginActivity";
     private Button mBtnLogin;
     private TextView mTvRetrieve;
     private TextView mTvRegister;
@@ -224,7 +226,7 @@ public class LoginActivity extends NoBackBasaActivity implements
                 params.add(new BasicNameValuePair("action", "userLogin"));
                 String str2 = EPHttpService.customerPostString(
                         GlobalVariables.SERVICE_HOST_USER_SYSTEM, params);
-
+                Log.i(TAG,str2);
                 JSONObject JsonObject = JSONObject.parseObject(str2);
                 boolean result = JsonObject.getBooleanValue("result");
                 mMessage = JsonObject.getString("message");
@@ -246,10 +248,13 @@ public class LoginActivity extends NoBackBasaActivity implements
                         .getIntValue("user_campus_status"));
                 application.setUserLibStatus(JsonObject
                         .getIntValue("user_lib_status"));
+                application.setMAILsStatus(JsonObject
+                        .getIntValue("user_email_status"));
                 application.setNickName(JsonObject.getString("user_nick_name"));
                 application.setUserName(JsonObject.getString("user_name"));
                 application.setPassWord(JsonObject
                         .getString("user_password_hash"));
+
 
                 application.setChatToken(JsonObject
                         .getString("user_chat_token"));
@@ -294,11 +299,9 @@ public class LoginActivity extends NoBackBasaActivity implements
                 // 开始获取好友列表
                 publishProgress(1);
 
-                if (getContactFromEP(application)) return false;
-
                 // 获取群聊列表(群聊里只有groupid和groupname的简单信息),sdk会把群组存入到内存和db中
 
-                return true;
+                return getContactFromEP(application);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -329,7 +332,7 @@ public class LoginActivity extends NoBackBasaActivity implements
             result = object.getBooleanValue("result");
             if (!result) {
                 mMessage = object.getString("message");
-                return true;
+                return false;
             }
             Map<String, User> userlist = new HashMap<String, User>();
             JSONArray array = object.getJSONArray("friendList");
@@ -388,7 +391,7 @@ public class LoginActivity extends NoBackBasaActivity implements
             UserDao dao = new UserDao(LoginActivity.this);
             List<User> users = new ArrayList<User>(userlist.values());
             dao.saveContactList(users);
-            return false;
+            return true;
         }
 
         @Override
@@ -431,15 +434,17 @@ public class LoginActivity extends NoBackBasaActivity implements
                                     EPApplication.getInstance().logout();
                                     e.printStackTrace();
                                 }
-                                runOnUiThread(new Runnable() {
-                                    public void run() {
-                                        mDialog.dismiss();
-                                        CommonUtils.showCustomToast(Toast
-                                                .makeText(LoginActivity.this,
-                                                        mMessage,
-                                                        Toast.LENGTH_SHORT));
-                                    }
-                                });
+                                if (mMessage!=null||(!mMessage.equals(""))) {
+                                    runOnUiThread(new Runnable() {
+                                        public void run() {
+                                            mDialog.dismiss();
+                                            CommonUtils.showCustomToast(Toast
+                                                    .makeText(LoginActivity.this,
+                                                            mMessage,
+                                                            Toast.LENGTH_SHORT));
+                                        }
+                                    });
+                                }
                                 // EMChatManager.getInstance()
                                 // .updateCurrentUserNick(
                                 // EPApplication.getInstance()

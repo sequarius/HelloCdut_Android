@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.ViewConfiguration;
 
 import com.easemob.chat.EMChat;
@@ -38,6 +39,7 @@ public class EPApplication extends Application {
     private int mLibBindStatus = Integer.MIN_VALUE;
 
     private int mCampusBindStatus = Integer.MIN_VALUE;
+    private int mMailStatus = Integer.MIN_VALUE;
     // 未登录
     public static final int USER_STATUS_UNLOGIN = -1;
     // 普通用户
@@ -62,6 +64,7 @@ public class EPApplication extends Application {
     private static final String PREF_USER_STATUS = "user_status";
     private static final String PREF_LIBRARY_STATUS = "user_lib_status";
     private static final String PREF_CAMPUS_STATUS = "user_campus_status";
+    private static final String PREF_MAIL_STATUS = "user_mail_status";
 
     private static final String TAG = "EPAppliaction";
 
@@ -214,6 +217,37 @@ public class EPApplication extends Application {
         if (editor.putInt(PREF_CAMPUS_STATUS, mode).commit()) {
             mCampusBindStatus = mode;
         }
+    }
+    /**
+     * 获取用户邮箱的绑定状态
+     *
+     * @return
+     */
+    public int getMailStatus() {
+        if (mMailStatus == Integer.MIN_VALUE) {
+            SharedPreferences preferences = getSharedPreferences("user",
+                    MODE_PRIVATE);
+            mMailStatus = preferences.getInt(PREF_MAIL_STATUS,
+                    Integer.MIN_VALUE);
+        }
+        return mMailStatus;
+    }
+
+    /**
+     * 设置邮箱的绑定状态
+     *
+     * @param mode
+     */
+    public void setMAILsStatus(int mode) {
+        SharedPreferences preferences = getSharedPreferences("user",
+                MODE_PRIVATE);
+        Log.i(TAG,"mode=="+mode);
+        SharedPreferences.Editor editor = preferences.edit();
+        if (editor.putInt(PREF_MAIL_STATUS, mode).commit()) {
+            mMailStatus = mode;
+        }
+        Log.i(TAG,"mode after=="+mode);
+
     }
 
     /**

@@ -14,17 +14,17 @@ public class GlobalVariables {
 //	public static final String SERVICE_HOST_QUERYSYSTEM="http://www.hellocdut.com/api/pointer/empty/queryApiTest/queryPro.php";
 //	public static final String SERVICE_HOST_UPDATE="http://www.hellocdut.com/api/pointer/empty/queryUpdate/queryPro.php";
 //	public static final String SERVICE_HOST_CAMPUS_CARD="http://www.hellocdut.com/api/pointer/empty/queryCampusInfo/queryPro.php";
+    public static final String SERVICE_HOST= "http://121.42.11.20/test/api/";
 
-
-    public static final String SERVICE_HOST_USER_SYSTEM = "http://121.42.11.20/test/api/";
-    public static final String SERVICE_HOST_BIND_SYSTEM = "http://121.42.11.20/test/api/";
-    public static final String SERVICE_HOST_UNBIND_SYSTEM = "http://121.42.11.20/test/api/";
-    public static final String SERVICE_HOST_FILE_SYSTEM = "http://121.42.11.20/test/api/";
-    public static final String SERVICE_HOST_QUERYSYSTEM = "http://121.42.11.20/test/api/";
-    public static final String SERVICE_HOST_UPDATE = "http://121.42.11.20/test/api/";
-    public static final String SERVICE_HOST_CAMPUS_CARD = "http://121.42.11.20/test/api/";
-    public static final String SERVICE_HOST_QUERY_BOOK = "http://121.42.11.20/test/api/";
-    public static final String SERVICE_HOST_ADDONES = "http://121.42.11.20/test/api/";
+    public static final String SERVICE_HOST_USER_SYSTEM = SERVICE_HOST;
+    public static final String SERVICE_HOST_BIND_SYSTEM = SERVICE_HOST;
+    public static final String SERVICE_HOST_UNBIND_SYSTEM = SERVICE_HOST;
+    public static final String SERVICE_HOST_FILE_SYSTEM = SERVICE_HOST;
+    public static final String SERVICE_HOST_QUERYSYSTEM = SERVICE_HOST;
+    public static final String SERVICE_HOST_UPDATE = SERVICE_HOST;
+    public static final String SERVICE_HOST_CAMPUS_CARD = SERVICE_HOST;
+    public static final String SERVICE_HOST_QUERY_BOOK = SERVICE_HOST;
+    public static final String SERVICE_HOST_ADDONES = SERVICE_HOST;
 
 
     public static final String SERVICE_HOST_AGREEMENT = "http://www.hellocdut.com/agreement.html";

@@ -34,7 +34,7 @@ public class AccountManageActivity extends BaseActivity implements
     public static final String ACTION_UNBIND_AAO = "unbindAAO";
     public static final String ACTION_UNBIND_CAMPUS_CARD = "unbindCampus";
     private Button mBtnUnbindAAO, mBtnUnBindLib, mBtnUnbindCampusCard;
-    private TextView mTvStuID, mTvLibID, mTvCampusID;
+    private TextView mTvStuID, mTvLibID, mTvCampusID,mtvMailAccount;
     private TextView mTvBindHintCampus, mTvBindHintStuID, mTvBindHintLib,
             mTvBindHintMail;
     private LinearLayout mLayoutAAO;
@@ -55,7 +55,7 @@ public class AccountManageActivity extends BaseActivity implements
         mTvBindHintCampus = (TextView) findViewById(R.id.textView_bind_hint_campus_card);
         mTvBindHintStuID = (TextView) findViewById(R.id.textView_bind_hint_stu_id);
         mTvBindHintLib = (TextView) findViewById(R.id.textView_bind_hint_lib);
-        mTvBindHintMail = (TextView) findViewById(R.id.textView_bind_hint_lib);
+        mTvBindHintMail = (TextView) findViewById(R.id.textView_bind_hint_mail);
 
         mBtnUnbindAAO = (Button) findViewById(R.id.button_unbind_aao);
         mBtnUnBindLib = (Button) findViewById(R.id.button_unbind_lib);
@@ -68,6 +68,7 @@ public class AccountManageActivity extends BaseActivity implements
         mTvStuID = (TextView) findViewById(R.id.textView_stu_id);
         mTvLibID = (TextView) findViewById(R.id.textView_lib_id);
         mTvCampusID = (TextView) findViewById(R.id.textView_campus_id);
+        mtvMailAccount=(TextView)findViewById(R.id.textView_mail_account);
     }
 
     @Override
@@ -101,6 +102,16 @@ public class AccountManageActivity extends BaseActivity implements
             mBtnUnbindCampusCard.setOnClickListener(this);
             mTvBindHintCampus.setVisibility(View.VISIBLE);
             mLayoutCampus.setClickable(false);
+
+        }
+        if (EPApplication.getInstance().getMailStatus() == EPApplication.USER_STATUS_CERTIFICATE) {
+            mTvBindHintMail.setVisibility(View.VISIBLE);
+            mtvMailAccount.setText(UserInfo.getInstance(getApplicationContext())
+                    .getMail());
+//            mBtnUnbindCampusCard.setVisibility(View.VISIBLE);
+//            mBtnUnbindCampusCard.setOnClickListener(this);
+            mTvBindHintMail.setVisibility(View.VISIBLE);
+            mLayoutMail.setClickable(false);
 
         }
     }

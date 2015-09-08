@@ -1,130 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/layout_medium_margin"
-        android:layout_marginRight="@dimen/layout_medium_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin">
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/color_ep_white"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="@dimen/icon_small_size"
-            android:layout_height="@dimen/icon_small_size"
-            android:contentDescription="@string/app_name"
-            android:gravity="center_vertical"
-            android:src="@drawable/ic_user" />
-
-        <com.emptypointer.hellocdut.widget.ClearableEditText
-            android:id="@+id/editText_user_name"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLength="12"
-            android:layout_marginLeft="@dimen/layout_medium_margin"
-            android:layout_marginRight="@dimen/layout_small_margin"
-            android:background="@null"
-            android:gravity="center_vertical"
-            android:hint="@string/hint_input_aao_account"
-            android:singleLine="true"
-            android:textSize="@dimen/font_medium_size" />
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView_recommand"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/str_reset_by_aao" />
+
+            <View
+                android:id="@+id/view_underline_recommand"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/color_ep_white" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView_publication"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/str_reset_by_mail" />
+
+            <View
+                android:id="@+id/view_underline_publication"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/color_ep_blue" />
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginLeft="@dimen/layout_medium_margin"
-        android:layout_marginRight="@dimen/layout_medium_margin"
-        android:layout_marginTop="@dimen/layout_small_margin"
         android:background="@color/color_ep_deep_gray" />
 
-    <LinearLayout
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/layout_medium_margin"
-        android:layout_marginRight="@dimen/layout_medium_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin">
+        android:layout_height="match_parent" />
 
-        <ImageView
-            android:layout_width="@dimen/icon_small_size"
-            android:layout_height="@dimen/icon_small_size"
-            android:contentDescription="@string/app_name"
-            android:gravity="center_vertical"
-            android:src="@drawable/ic_password" />
-
-        <com.emptypointer.hellocdut.widget.ClearableEditText
-            android:id="@+id/editText_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/layout_medium_margin"
-            android:layout_marginRight="@dimen/layout_small_margin"
-            android:background="@null"
-            android:maxLength="25"
-            android:gravity="center_vertical"
-            android:inputType="textPassword"
-            android:hint="@string/hint_input_aao_password"
-            android:fontFamily="sans-serif"
-            android:singleLine="true"
-            android:textSize="@dimen/font_medium_size" />
-
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="@dimen/layout_medium_margin"
-        android:layout_marginRight="@dimen/layout_medium_margin"
-        android:layout_marginTop="@dimen/layout_small_margin"
-        android:background="@color/color_ep_deep_gray" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/layout_medium_margin"
-        android:layout_marginRight="@dimen/layout_medium_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin">
-
-        <ImageView
-            android:layout_width="@dimen/icon_small_size"
-            android:layout_height="@dimen/icon_small_size"
-            android:contentDescription="@string/app_name"
-            android:gravity="center_vertical"
-            android:src="@drawable/ic_password" />
-
-        <com.emptypointer.hellocdut.widget.ClearableEditText
-            android:id="@+id/editText_new_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/layout_medium_margin"
-            android:layout_marginRight="@dimen/layout_small_margin"
-            android:background="@null"
-            android:maxLength="25"
-            android:gravity="center_vertical"
-            android:inputType="textPassword"
-            android:hint="@string/hint_input_new_password"
-            android:fontFamily="sans-serif"
-            android:singleLine="true"
-            android:textSize="@dimen/font_medium_size" />
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="@dimen/layout_medium_margin"
-        android:layout_marginRight="@dimen/layout_medium_margin"
-        android:layout_marginTop="@dimen/layout_small_margin"
-        android:background="@color/color_ep_deep_gray" />
-
-    <Button
-        android:id="@+id/button_bind"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/layout_medium_margin"
-        android:layout_marginRight="@dimen/layout_medium_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="@string/str_tryto_find_passwd" />
 
 </LinearLayout>
