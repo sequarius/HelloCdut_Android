@@ -172,7 +172,7 @@ public class LoginActivity extends NoBackBasaActivity implements
     private void doLogin() {
         String username = mEtUserName.getText().toString().trim();
         String password = mEtPassWord.getText().toString().trim();
-        if (!StringChecker.isLegalUserName(username)) {
+        if (!StringChecker.isLegalUserName(username)&&(!StringChecker.isMail(username))) {
             CommonUtils.showCustomToast(Toast.makeText(this,
                     getString(R.string.message_wrong_username_toast),
                     Toast.LENGTH_LONG));
@@ -434,7 +434,7 @@ public class LoginActivity extends NoBackBasaActivity implements
                                     EPApplication.getInstance().logout();
                                     e.printStackTrace();
                                 }
-                                if (mMessage!=null||(!mMessage.equals(""))) {
+
                                     runOnUiThread(new Runnable() {
                                         public void run() {
                                             mDialog.dismiss();
@@ -444,7 +444,7 @@ public class LoginActivity extends NoBackBasaActivity implements
                                                             Toast.LENGTH_SHORT));
                                         }
                                     });
-                                }
+
                                 // EMChatManager.getInstance()
                                 // .updateCurrentUserNick(
                                 // EPApplication.getInstance()

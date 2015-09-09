@@ -11,15 +11,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.emptypointer.hellocdut.R;
+import com.emptypointer.hellocdut.service.EPJsonHttpBaseResponseHandler;
+import com.emptypointer.hellocdut.service.EPJsonHttpResponseHandler;
 import com.emptypointer.hellocdut.service.EPSecretService;
+import com.emptypointer.hellocdut.utils.CommonUtils;
 import com.emptypointer.hellocdut.utils.GlobalVariables;
+import com.emptypointer.hellocdut.utils.StringChecker;
 import com.emptypointer.hellocdut.widget.ClearableEditText;
 import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.apache.http.Header;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -46,6 +48,7 @@ public class ResetPwdByAAOFragment extends Fragment {
     private com.emptypointer.hellocdut.widget.ClearableEditText etPwd;
     private com.emptypointer.hellocdut.widget.ClearableEditText etNewPwd;
     private android.widget.Button buttonbind;
+    private String stuID;
 
     /**
      * Use this factory method to create a new instance of
@@ -138,23 +141,29 @@ public class ResetPwdByAAOFragment extends Fragment {
         RequestParams requestParams = new RequestParams();
         requestParams.add("action", "resetUserPasswordByAAO");
         requestParams.add("aao_password", EPSecretService.encryptByPublic(etPwd.getText().toString()));
-        String account = EPSecretService.encryptByPublic(etUsername.getText().toString());
+        stuID = etUsername.getText().toString();
+        if(!StringChecker.isLegalStudentID(stuID)){
+            CommonUtils.customToast(R.string.message_wrong_student_id_toast,getActivity(),true);
+            return;
+        }
+        String account = EPSecretService.encryptByPublic(stuID);
         Log.d(TAG, account);
         requestParams.add("aao_account", account);
-        requestParams.add("new_password", EPSecretService.encryptByPublic(etNewPwd.getText().toString()));
-        client.post(GlobalVariables.SERVICE_HOST_ADDONES, requestParams, new JsonHttpResponseHandler() {
-
+        String newPwd = etNewPwd.getText().toString();
+        if(!StringChecker.isLegalPassword(newPwd)){
+            CommonUtils.customToast(R.string.message_wrong_password_toast,getActivity(),true);
+            return;
+        }
+        requestParams.add("new_password", EPSecretService.encryptByPublic(newPwd));
+        client.post(GlobalVariables.SERVICE_HOST_ADDONES, requestParams, new EPJsonHttpResponseHandler(getActivity(),true){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Log.d(TAG, response.toString());
-
+                super.onSuccess(statusCode, headers, response);
+                Log.i(TAG, response.toString());
+                if(result) {
+                    getActivity().finish();
+                }
             }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-
-            }
-
         });
     }
 

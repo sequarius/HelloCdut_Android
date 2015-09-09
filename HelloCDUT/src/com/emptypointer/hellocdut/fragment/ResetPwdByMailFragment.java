@@ -1,8 +1,12 @@
 package com.emptypointer.hellocdut.fragment;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.emptypointer.hellocdut.R;
+import com.emptypointer.hellocdut.service.EPJsonHttpBaseResponseHandler;
+import com.emptypointer.hellocdut.service.EPJsonHttpResponseHandler;
 import com.emptypointer.hellocdut.service.EPSecretService;
 import com.emptypointer.hellocdut.utils.CommonUtils;
 import com.emptypointer.hellocdut.utils.GlobalVariables;
@@ -38,9 +44,14 @@ public class ResetPwdByMailFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private static final String TAG = "ResetPwdByMailFragment";
 
+    private long mLastGetTokenTime;
+    private static String PRE_KEY_LAST_GET_TIME = "reset_token_time";
+    private static String PRE_KEY_BIND_EMAIL = "reseet_email";
+
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Handler handler;
+
+    private boolean isActivityDestroy=false;
 
     private AsyncHttpClient client;
 
@@ -73,10 +84,13 @@ public class ResetPwdByMailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         client=new AsyncHttpClient();
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    }
+
+    @Override
+    public void onDestroy() {
+        isActivityDestroy=true;
+        handler.removeCallbacks(runnable);
+        super.onDestroy();
     }
 
     @Override
@@ -100,6 +114,12 @@ public class ResetPwdByMailFragment extends Fragment {
         });
         this.etToken = (ClearableEditText) view.findViewById(R.id.etToken);
         this.etMail = (ClearableEditText) view.findViewById(R.id.etMail);
+        handler=new getBtnHandeler();
+        handler.post(runnable);
+
+        mLastGetTokenTime = getActivity().getSharedPreferences(GlobalVariables.SHARED_PERFERENCR_SETTING, Context.MODE_PRIVATE).getLong(PRE_KEY_LAST_GET_TIME, Integer.MAX_VALUE);
+        String lastEmail = getActivity().getSharedPreferences(GlobalVariables.SHARED_PERFERENCR_SETTING, Context.MODE_PRIVATE).getString(PRE_KEY_BIND_EMAIL, "");
+        etMail.setText(lastEmail);
         return view;
     }
 
@@ -111,17 +131,25 @@ public class ResetPwdByMailFragment extends Fragment {
             CommonUtils.customToast(R.string.str_message_wrong_email_format,getActivity(),true);
             return;
         }
-        requestParams.add("user_name", EPSecretService.encryptByPublic(mail));
-        client.post(GlobalVariables.SERVICE_HOST, requestParams, new JsonHttpResponseHandler() {
+        SharedPreferences preferences = getActivity().getSharedPreferences(GlobalVariables.SHARED_PERFERENCR_SETTING, Context.MODE_PRIVATE);
+        if (!preferences.edit().putString(PRE_KEY_BIND_EMAIL, mail).commit()) {
+            return;
+        }
+        requestParams.add("user_email", EPSecretService.encryptByPublic(mail));
+        client.post(GlobalVariables.SERVICE_HOST, requestParams, new EPJsonHttpResponseHandler(getActivity(),true) {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.d(TAG, response.toString());
-
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onSuccess(statusCode, headers, response);
+                if(result){
+                    SharedPreferences preferences = getActivity().getSharedPreferences(GlobalVariables.SHARED_PERFERENCR_SETTING, Context.MODE_PRIVATE);
+                    long timeMillis = System.currentTimeMillis() + 1000 * 60;
+                    if (preferences.edit().putLong(PRE_KEY_LAST_GET_TIME, timeMillis).commit()) {
+                        mLastGetTokenTime = timeMillis;
+                    }
+                    handler.post(runnable);
+                }
 
             }
 
@@ -130,6 +158,35 @@ public class ResetPwdByMailFragment extends Fragment {
     }
 
     private void commitTask() {
+        RequestParams requestParams = new RequestParams();
+        String mail = etMail.getText().toString();
+        String token=etToken.getText().toString();
+        String newPwd=etNewPwd.getText().toString();
+        if(!StringChecker.isMail(mail)){
+            CommonUtils.customToast(R.string.str_message_wrong_email_format,getActivity(),true);
+            return;
+        }
+        if(token.length()!=4){
+            CommonUtils.customToast(R.string.message_wrong_format_captcha,getActivity(),true);
+            return;
+        }
+        if(!StringChecker.isLegalPassword(newPwd)){
+            CommonUtils.customToast(R.string.message_wrong_password_toast,getActivity(),true);
+            return;
+        }
+        requestParams.add("action", "resetUserPasswordByEmail");
+        requestParams.add("user_email", EPSecretService.encryptByPublic(mail));
+        requestParams.add("validate_code", EPSecretService.encryptByPublic(token));
+        requestParams.add("new_password", EPSecretService.encryptByPublic(newPwd));
+        client.post(GlobalVariables.SERVICE_HOST,requestParams,new EPJsonHttpBaseResponseHandler(getActivity(),true){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                if(result){
+                    getActivity().finish();
+                }
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -170,5 +227,36 @@ public class ResetPwdByMailFragment extends Fragment {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
+
+    private class getBtnHandeler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (!isActivityDestroy) {
+                if (msg.what<= 0){
+                    buttonget.setClickable(true);
+                    buttonget.setEnabled(true);
+                    buttonget.setText("发送验证码");
+                } else {
+                    buttonget.setClickable(false);
+                    buttonget.setEnabled(false);
+                    buttonget.setText(getString(R.string.str_format_last_time, msg.what));
+                }
+            }
+        }
+    }
+
+    private Runnable runnable=new Runnable() {
+        @Override
+        public void run() {
+            long timeDiffer = (mLastGetTokenTime - System.currentTimeMillis()) / 1000;
+            Message message=new Message();
+            message.what=(int)timeDiffer;
+            handler.sendMessage(message);
+            if (timeDiffer < 60 && timeDiffer > 0&&!isActivityDestroy) {
+                handler.postDelayed(this, 1000);
+            }
+        }
+    };
 
 }

@@ -411,9 +411,9 @@ public class ScheduleActivity extends BaseActivity {
         String[] strArray = getResources().getStringArray(R.array.course_info);
         int[] ids = {R.id.textView_name, R.id.textView_classroom,
                 R.id.textView_teacher, R.id.textView_time, R.id.textView_week,
-                R.id.textView_overlay, R.id.textView_note};
-        TextView[] textViews = new TextView[7];
-        String[] info = new String[7];
+                R.id.textView_overlay};
+        TextView[] textViews = new TextView[6];
+        String[] info = new String[6];
         // 课程名
         info[0] = course.getFullName() + "[" + course.getCategroy() + "]";
         // 教室
@@ -479,8 +479,8 @@ public class ScheduleActivity extends BaseActivity {
                 : R.string.str_positive);
 
         // 备注
-        info[6] = course.getNote().equals("NONE") ? getString(R.string.str_none)
-                : course.getNote().replace("备注:", "");
+//        info[6] = course.getNote().equals("NONE") ? getString(R.string.str_none)
+//                : course.getNote().replace("备注:", "");
         View contentView = View.inflate(this, R.layout.popmenu_course_detail,
                 null);
         ((RelativeLayout) contentView

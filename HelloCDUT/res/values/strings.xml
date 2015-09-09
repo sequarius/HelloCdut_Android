@@ -107,7 +107,7 @@
     <string name="message_wrong_donnot_accpet_agreement">请先仔细阅读并接受用户协议！</string>
     <string name="message_wrong_username_toast">非法用户名：用户名须由6—16位英文字母/数字组成！</string>
     <string name="message_wrong_password_toast">非法密码长度：密码长度须由6—16位字符组成！</string>
-    <string name="message_wrong_student_id_toast">非法学号：学号必须由12位数字组成！</string>
+    <string name="message_wrong_student_id_toast">非法学号：学号必须由12位或13数字组成！</string>
     <string name="message_wrong_empty_password_toast">非法密码：密码不能为空！</string>
     <string name="message_wrong_input_lengh">非法内容长度：请根据输入提示输入合适内容长度！</string>
     <string name="message_wrong_password_confirm_toast">两次输入的密码不同，请查证再试！</string>

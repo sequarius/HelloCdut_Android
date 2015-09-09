@@ -47,7 +47,7 @@ public class StringChecker {
     }
 
     public static boolean isLegalStudentID(String stuID) {
-        String strRegex = "\\d{12}";
+        String strRegex = "\\d{12,1312}";
         return stuID.matches(strRegex);
     }
 

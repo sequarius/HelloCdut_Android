@@ -159,7 +159,7 @@ public class AddOnesActivity extends BaseActivity {
             params.add(new BasicNameValuePair("user_login_token",
                     EPSecretService.encryptByPublic(EPApplication.getInstance()
                             .getToken())));
-            params.add(new BasicNameValuePair("action", "queryGrade"));
+            params.add(new BasicNameValuePair("action", "queryAddons"));
             try {
                 String str = EPHttpService.customerPostString(
                         GlobalVariables.SERVICE_HOST_ADDONES, params);

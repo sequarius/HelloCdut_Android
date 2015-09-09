@@ -239,6 +239,7 @@ public class AddUserFragment extends Fragment implements OnClickListener {
                 String str = EPHttpService.customerPostString(
                         GlobalVariables.SERVICE_HOST_USER_SYSTEM, params);
                 JSONObject object = JSONObject.parseObject(str);
+                Log.i(TAG,str);
                 boolean result = object.getBoolean("result");
                 if (!result) {
                     mMessage = object.getString("message");
