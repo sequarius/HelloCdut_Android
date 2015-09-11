@@ -110,6 +110,7 @@
     <string name="message_wrong_student_id_toast">非法学号：学号必须由12位或13数字组成！</string>
     <string name="message_wrong_empty_password_toast">非法密码：密码不能为空！</string>
     <string name="message_wrong_input_lengh">非法内容长度：请根据输入提示输入合适内容长度！</string>
+    <string name="message_wrong_empty_keyword">不给关键字可怎么找呢？TAT</string>
     <string name="message_wrong_password_confirm_toast">两次输入的密码不同，请查证再试！</string>
 
     <!-- arrays -->
@@ -136,9 +137,6 @@
     <string-array name="str_array_main_function_name">
         <item>日程</item>
         <item>查询</item>
-        <item>选课</item>
-        <item>跳蚤市场</item>
-        <item>社区</item>
         <item>图书馆</item>
         <item>校园卡</item>
         <item>更多</item>
@@ -347,6 +345,8 @@
     <string name="str_format_book_index_id">索书号：%1$s</string>
     <string name="str_format_renew_time">续借：%1$s次</string>
     <string name="str_format_book_location">馆藏地点：%1$s</string>
+    <string name="str_format_major">专业：%1$s</string>
+    <string name="str_format_make_date">创建时间：%1$s</string>
     <string name="str_no_more">没有更多了！╮（╯＿╰）╭</string>
     <string name="str_on_renew_book">正在进行续借</string>
     <string name="message_format_renew_book_finish">《%1$s》已完成续借，归还时间已更新至%2$s</string>
@@ -410,6 +410,8 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str_account_mail_stu_id">帐号/学号/邮箱</string>
+    <string name="str_major_key_word">专业关键字</string>
 
 
 </resources>

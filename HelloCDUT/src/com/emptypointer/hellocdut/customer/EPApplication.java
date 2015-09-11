@@ -30,6 +30,7 @@ import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.tencent.bugly.crashreport.CrashReport;
 
 public class EPApplication extends Application {
     public static Context applicationContext;
@@ -148,6 +149,9 @@ public class EPApplication extends Application {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+
+        CrashReport.initCrashReport(this, "900008333", false);
+//        CrashReport.testJavaCrash();
         applicationContext = this;
         instance = this;
 

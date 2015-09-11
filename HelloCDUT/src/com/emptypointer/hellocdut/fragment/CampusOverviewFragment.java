@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,7 @@ import com.emptypointer.hellocdut.utils.CommonUtils;
 import com.emptypointer.hellocdut.utils.GlobalVariables;
 
 public class CampusOverviewFragment extends Fragment {
+    private static final String TAG = "CampusOverviewFragment";
     private TextView mTvUserName, mTvID, mTvStatus, mTvGender, mTvMainBalance,
             mTvSubSideyBalance;
     private DataCacheDao mDao;
@@ -143,7 +145,7 @@ public class CampusOverviewFragment extends Fragment {
             try {
                 String str = EPHttpService.customerPostString(
                         GlobalVariables.SERVICE_HOST_CAMPUS_CARD, params);
-
+                Log.i(TAG, str);
                 imObject = JSONObject.parseObject(str);
                 boolean result = imObject.getBooleanValue("result");
                 if (result) {

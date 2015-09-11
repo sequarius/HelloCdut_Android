@@ -131,7 +131,7 @@ public class BindCampusCardFragment extends Fragment {
                 mImgeView.setImageBitmap(bitmap);
                 isOnLoadCaptcha = false;
                 mButtonRefresh.setClickable(true);
-
+                mEtCaptcha.setText("");
             } else {
                 CommonUtils.showCustomToast(Toast.makeText(getActivity(), mMessage,
                         Toast.LENGTH_LONG));

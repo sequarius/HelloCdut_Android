@@ -36,7 +36,7 @@
                     android:layout_marginRight="@dimen/layout_small_margin"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:hint="@string/hint_account_mail"
+                    android:hint="@string/str_account_mail_stu_id"
                     android:singleLine="true"
                     android:textSize="@dimen/font_medium_size" />
             </LinearLayout>

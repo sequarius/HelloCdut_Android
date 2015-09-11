@@ -66,6 +66,8 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dex-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.joanzapata.pdfview/android-pdfview/1.0.4/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.tencent.bugly/crashreport/1.2.3.8/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/in.srain.cube/ultra-ptr/1.0.9/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jacoco" />
@@ -88,6 +90,8 @@
     <orderEntry type="library" exported="" name="android-support-v4" level="project" />
     <orderEntry type="library" exported="" name="systembartint-1.0.4" level="project" />
     <orderEntry type="library" exported="" name="qiniu-android-sdk-7.0.1" level="project" />
+    <orderEntry type="library" exported="" name="android-pdfview-1.0.4" level="project" />
+    <orderEntry type="library" exported="" name="crashreport-1.2.3.8" level="project" />
     <orderEntry type="library" exported="" name="android-viewbadger" level="project" />
     <orderEntry type="library" exported="" name="fastjson-1.1.43.android" level="project" />
     <orderEntry type="library" exported="" name="ultra-ptr-1.0.9" level="project" />

@@ -22,7 +22,7 @@
             android:id="@+id/editText_user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="12"
+            android:maxLength="13"
             android:layout_marginLeft="@dimen/layout_medium_margin"
             android:layout_marginRight="@dimen/layout_small_margin"
             android:background="@null"

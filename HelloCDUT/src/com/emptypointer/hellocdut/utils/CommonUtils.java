@@ -118,6 +118,7 @@ public class CommonUtils {
     public static void customToast(String text, Context context, boolean longable) {
         int time = longable ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, text, time);
+        toast.setGravity(Gravity.TOP, 0, 90);
         toast.show();
     }
 

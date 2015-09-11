@@ -28,7 +28,7 @@
             android:background="@null"
             android:gravity="center_vertical"
             android:hint="@string/hint_input_campus_account"
-            android:maxLength="12"
+            android:maxLength="13"
             android:singleLine="true"
             android:textSize="@dimen/font_medium_size" />
 

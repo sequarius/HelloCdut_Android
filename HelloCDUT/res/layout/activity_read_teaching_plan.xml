@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mixedmedium.magazine.ReadActivity">
+
+    <com.joanzapata.pdfview.PDFView
+        android:id="@+id/pdfview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/layout_on_load"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:layout_height="fill_parent">
+
+
+        <!-- 进度条 -->
+        <ProgressBar
+            android:layout_width="fill_parent"
+            android:layout_height="20dip"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:id="@+id/downloadbar" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/resultView" />
+    </LinearLayout>
+</FrameLayout>

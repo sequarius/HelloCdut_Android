@@ -31,10 +31,14 @@ public class FunctionFragment extends Fragment {
     private List<FunctionItem> mItems;
     private FunctionGridAdapter mAdapter;
     private int[] mIconID = {R.drawable.ic_function_schedule,
-            R.drawable.ic_function_search, R.drawable.ic_function_choos_class,
-            R.drawable.ic_function_trade, R.drawable.ic_function_forums,
+            R.drawable.ic_function_search,
             R.drawable.ic_function_library, R.drawable.ic_functioncampus_card,
             R.drawable.ic_function_aad_more};
+//    private int[] mIconID = {R.drawable.ic_function_schedule,
+//            R.drawable.ic_function_search, R.drawable.ic_function_choos_class,
+//            R.drawable.ic_function_trade, R.drawable.ic_function_forums,
+//            R.drawable.ic_function_library, R.drawable.ic_functioncampus_card,
+//            R.drawable.ic_function_aad_more};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -89,10 +93,7 @@ public class FunctionFragment extends Fragment {
                 case 1:
                     intent.setAction(GlobalVariables.ACTION_QUERY);
                     break;
-                case 3:
-
-                    break;
-                case 5:
+                case 2:
                     if (EPApplication.getInstance().getUserLibStatus() > EPApplication.USER_STATUS_NORMAL) {
 
                         intent.setAction(GlobalVariables.ACTION_LIBRARY);
@@ -102,7 +103,7 @@ public class FunctionFragment extends Fragment {
                     }
                     // intent.setAction(GlobalVariables.ACTION_ADD_ONES);
                     break;
-                case 6:
+                case 3:
                     if (EPApplication.getInstance().getUserCampusStatus() > EPApplication.USER_STATUS_NORMAL) {
 
                         intent.setAction(GlobalVariables.ACTION_CAMPUS_CARD);
@@ -111,7 +112,7 @@ public class FunctionFragment extends Fragment {
                                 getString(R.string.str_campus_card), getActivity());
                     }
                     break;
-                case 7:
+                case 4:
 
                     intent.setClass(getActivity(), AddOnesActivity.class);
                     startActivity(intent);
@@ -119,7 +120,7 @@ public class FunctionFragment extends Fragment {
                 default:
                     break;
             }
-            if (intent.getAction() != null && intent.getClass() != null) {
+            if (intent.getAction() != null || intent.getClass() != null) {
                 startActivity(intent);
             } else {
                 CommonUtils.showCustomToast(Toast.makeText(getActivity(),

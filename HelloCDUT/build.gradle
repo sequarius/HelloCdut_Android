@@ -1,14 +1,24 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'bugly'   //添加Bugly符号表插件
 dependencies {
-    compile fileTree(include: '*.jar', dir: 'libs')
+    compile fileTree(dir: 'libs', include: '*.jar')
     compile project(':GoogleDateTimePickers')
-//    compile 'com.github.flavienlaurent.datetimepicker:library:0.0.2'
+    //    compile 'com.github.flavienlaurent.datetimepicker:library:0.0.2'
     compile project(':library')
     compile project(':social_sdk_library_project')
     //    compile project(':ptr-lib')
     compile 'in.srain.cube:ultra-ptr:1.0.9@aar'
+    compile 'com.tencent.bugly:crashreport:1.2.3.8'
+    //其中<version>替换为当前最新bugly版本号1.2.3.8
+    //其中<version>替换为当前最新bugly版本号
     compile project(':viewpagerIndicator')
+    //2
+    compile 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
+}
+
+bugly {
+    appId = '900008333'    //注册时分配的App ID
+    appKey = '4XTJ4XDJHK2FXInM'  //注册时分配的App Key
 }
 
 android {

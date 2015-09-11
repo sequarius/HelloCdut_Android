@@ -128,6 +128,7 @@ public class BindBasicFragment extends Fragment {
             try {
                 String str = EPHttpService.customerPostString(
                         GlobalVariables.SERVICE_HOST_BIND_SYSTEM, params);
+                Log.i("TAG","response=="+str);
                 mObject = JSONObject.parseObject(str);
                 boolean result = mObject.getBooleanValue("result");
                 mMessage = mObject.getString("message");

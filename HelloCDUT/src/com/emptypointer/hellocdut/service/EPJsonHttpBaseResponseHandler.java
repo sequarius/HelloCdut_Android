@@ -17,6 +17,8 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Iterator;
+
 /**
  * Created by Sequarius on 2015/9/9.
  */
@@ -55,8 +57,8 @@ public class EPJsonHttpBaseResponseHandler extends JsonHttpResponseHandler {
         super.onSuccess(statusCode, headers, response);
         try {
             result=response.getBoolean("result");
-            String message = response.getString("message");
             if(!result){
+                String message = response.getString("message");
                 CommonUtils.customToast(message,mContext,true);
                 if (message.equals(GlobalVariables.ERRO_MESSAGE_RELOG)) {
                     Intent intent = new Intent(mContext,
@@ -67,9 +69,12 @@ public class EPJsonHttpBaseResponseHandler extends JsonHttpResponseHandler {
                 }
                 return;
             }
-            Log.i(TAG,"message=="+message);
-            if(message!=null&&(!message.isEmpty())){
-                CommonUtils.customToast(message,mContext,false);
+            Iterator<String> iterator = response.keys();
+            while(iterator.hasNext()){
+                if(iterator.next().equals("message")){
+                    CommonUtils.customToast(response.getString("message"),mContext,false);
+                    break;
+                }
             }
         } catch (JSONException e) {
             result=false;
