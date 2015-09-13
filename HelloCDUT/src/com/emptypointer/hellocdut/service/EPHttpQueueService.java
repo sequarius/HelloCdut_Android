@@ -11,6 +11,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.alibaba.fastjson.JSONObject;
 import com.emptypointer.hellocdut.dao.NetQueueDao;
@@ -71,6 +72,7 @@ public class EPHttpQueueService {
                 }
                 try {
                     String str = EPHttpService.customerPostString(host, params);
+                    Log.i(TAG,"result=="+str);
                     JSONObject obj = JSONObject.parseObject(str);
                     if (obj.getBooleanValue("result")) {
                         dao.removetask(task);

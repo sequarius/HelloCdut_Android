@@ -73,7 +73,8 @@
     <string name="str_share">分享</string>
     <string name="str_explain">说明</string>
     <string name="str_open_with_sytem_browser">使用浏览器阅读</string>
-    <string name="str_knowed">知道了！</string>
+    <string name="str_knowed">知道了</string>
+    <string name="str_read_detail">查看详情</string>
     <string name="str_call_log">最近通话</string>
 
     <!-- 课程表activity -->

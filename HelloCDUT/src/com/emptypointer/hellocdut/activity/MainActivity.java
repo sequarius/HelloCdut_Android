@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import android.app.*;
+import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -13,6 +15,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
@@ -51,13 +54,21 @@ import com.emptypointer.hellocdut.domain.InviteMessage;
 import com.emptypointer.hellocdut.domain.InviteMessage.InviteMesageStatus;
 import com.emptypointer.hellocdut.domain.User;
 import com.emptypointer.hellocdut.service.EPAAONewsService;
+import com.emptypointer.hellocdut.service.EPJsonHttpResponseHandler;
+import com.emptypointer.hellocdut.service.EPSecretService;
 import com.emptypointer.hellocdut.service.EPUpdateService;
 import com.emptypointer.hellocdut.utils.CommonUtils;
 import com.emptypointer.hellocdut.utils.GlobalVariables;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.RequestParams;
 import com.readystatesoftware.viewbadger.BadgeView;
 import com.viewpagerindicator.TabPageIndicator;
 
+import org.apache.http.Header;
+import org.json.JSONException;
+
 public class MainActivity extends NoBackBasaActivity {
+    private static final String PRE_LAST_NOTIFY_ID = "last_notify_id";
     private boolean isConflictDialogShow;
     public static final String CACHE_SCHEDULED_TASK = "main_scheduled_task";
     private UserDao mUserDao;
@@ -91,6 +102,7 @@ public class MainActivity extends NoBackBasaActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         initView(savedInstanceState);
         if (savedInstanceState != null
                 && savedInstanceState.getBoolean("isConflict", false)) {
@@ -185,6 +197,7 @@ public class MainActivity extends NoBackBasaActivity {
         super.onResume();
         updateUnreadLabel();
         updateUnreadAddressLable();
+        loadNotifyFromServer();
         if (!isConflict) {
             EMChatManager.getInstance().activityResumed();
         }
@@ -212,14 +225,69 @@ public class MainActivity extends NoBackBasaActivity {
 
                 }.start();
 
+                loadNotifyFromServer();
             }
         }
 
     }
 
+    public void loadNotifyFromServer(){
+        final SharedPreferences preferences=getSharedPreferences(GlobalVariables.SHARED_PERFERENCR_SETTING, Context.MODE_PRIVATE);
+        final Long recentID=preferences.getLong(PRE_LAST_NOTIFY_ID,Long.MIN_VALUE);
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams requestParams = new RequestParams();
+        requestParams.add("action", "loginNotify");
+        requestParams.add("user_name", EPSecretService.encryptByPublic(EPApplication.getInstance().getUserName()));
+        requestParams.add("user_login_token", EPSecretService.encryptByPublic(EPApplication.getInstance().getToken()));
+        client.post(GlobalVariables.SERVICE_HOST,requestParams,new EPJsonHttpResponseHandler(this){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, org.json.JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                if(!result){
+                    return;
+                }
+                try {
+                    final long id=response.getLong("id");
+                    if(id==recentID){
+                        return;
+                    }
+                    String content=response.getString("content");
+                    boolean hasURL=response.getBoolean("has_url");
+                    Builder builder= new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle(R.string.prompt);
+                    builder.setMessage(content);
+                    builder.setNegativeButton(R.string.str_knowed,
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    preferences.edit().putLong(PRE_LAST_NOTIFY_ID,id).commit();
+                                    dialog.dismiss();
+                                }
+                            });
+                    if(hasURL) {
+                        final String url = response.getString("return_url");
+                        builder.setPositiveButton(R.string.str_read_detail,new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                                startActivity(intent);
+                                dialog.dismiss();
+                            }
+                        });
+                    }
+                    CommonUtils.dialogTitleLineColor(builder.show());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+//        requestParams.add("key_words", keyword);
+    }
+
     // 所有在Oncreate方法中XML文件的findeView；及动态new出的View对象统一抽取到initView
     private void initView(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mViewPager = (ViewPager) findViewById(R.id.viewpager_index_guide);
         mIndicator = (TabPageIndicator) findViewById(R.id.indicator_index_guide);
@@ -304,7 +372,7 @@ public class MainActivity extends NoBackBasaActivity {
                                 MainActivity.this,
                                 ChatActivity.activityInstance
                                         .getToChatUsername() + "已把你从他好友列表里移除",
-                                1));
+                                Toast.LENGTH_SHORT));
                         ChatActivity.activityInstance.finish();
                     }
                     updateUnreadLabel();

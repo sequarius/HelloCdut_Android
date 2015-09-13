@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.RemoteControlClient.MetadataEditor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -47,6 +48,7 @@ public class UserInfoActivity extends BaseActivity implements OnClickListener {
     public static final String RESULT_INTENT = "result";
     private static final int REQUEST_NICKNAME = 0xFF0;
     private static final int REQUEST_MOTTO = 0xFF1;
+    private static final String TAG = "UserInfoActivity";
 
     private TextView tvUserName, tvNickName, tvMotto, tvLoveStatus,
             tvSexOrientation, tvRealName, tvGender, tvBirthDate,
@@ -352,6 +354,7 @@ public class UserInfoActivity extends BaseActivity implements OnClickListener {
                         }
                         mInfo.setPermissionLoveStatus(permissionChecked);
                         mInfo.setLoveStatus(valueChecked);
+                        Log.i(TAG,"out_permission=="+permissionChecked);
                         UpdateUserInfo("user_love_status",
                                 String.valueOf(valueChecked), permissionChecked);
                         tvLoveStatus.setText(loveStatusTable[valueChecked]);
@@ -515,6 +518,7 @@ public class UserInfoActivity extends BaseActivity implements OnClickListener {
         }
         if (permission != -1) {
             params.put("modify_permission", String.valueOf(permission));
+            Log.i(TAG, "permission changge==" + permission);
         }
         String finalParams = JSON.toJSONString(params);
         mService.saveRequest(new NetTask(

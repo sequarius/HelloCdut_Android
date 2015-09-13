@@ -43,8 +43,14 @@ import com.easemob.exceptions.EaseMobException;
 import com.easemob.util.EMLog;
 import com.easemob.util.NetUtils;
 import com.emptypointer.hellocdut.R;
+import com.emptypointer.hellocdut.customer.EPApplication;
+import com.emptypointer.hellocdut.service.EPJsonHttpResponseHandler;
+import com.emptypointer.hellocdut.service.EPSecretService;
 import com.emptypointer.hellocdut.utils.CommonUtils;
+import com.emptypointer.hellocdut.utils.GlobalVariables;
 import com.emptypointer.hellocdut.widget.ExpandGridView;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.RequestParams;
 
 public class GroupDetailsActivity extends BaseActivity implements
         OnClickListener {
@@ -160,6 +166,7 @@ public class GroupDetailsActivity extends BaseActivity implements
         clearAllHistory.setOnClickListener(this);
         blacklistLayout.setOnClickListener(this);
         changeGroupNameLayout.setOnClickListener(this);
+//        loadGroupMenberFromServer();
 
     }
 
@@ -309,6 +316,17 @@ public class GroupDetailsActivity extends BaseActivity implements
         progressDialog.dismiss();
         // adapter.refresh(EMChatManager.getInstance().getConversation(toChatUsername));
 
+    }
+
+    public void loadGroupMenberFromServer(){
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams requestParams = new RequestParams();
+        requestParams.add("action", "getGroupUserList");
+        requestParams.add("user_name", EPSecretService.encryptByPublic(EPApplication.getInstance().getUserName()));
+        requestParams.add("user_login_token", EPSecretService.encryptByPublic(EPApplication.getInstance().getToken()));
+        requestParams.add("group_id", EPSecretService.encryptByPublic(groupId));
+        client.post(GlobalVariables.SERVICE_HOST,requestParams,new EPJsonHttpResponseHandler(this,false));
+//        requestParams.add("key_words", keyword);
     }
 
     /**

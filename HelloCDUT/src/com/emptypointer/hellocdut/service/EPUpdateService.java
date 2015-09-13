@@ -168,6 +168,7 @@ public class EPUpdateService {
                 String appVersion = getAppVersion(mContext);
                 params.add(new BasicNameValuePair("version", appVersion));
                 params.add(new BasicNameValuePair("client", "0"));
+                params.add(new BasicNameValuePair("action", "queryUpdate"));
                 String str = EPHttpService.customerPostString(
                         GlobalVariables.SERVICE_HOST_UPDATE, params);
                 JSONObject obj = JSONObject.parseObject(str);
