@@ -287,7 +287,7 @@ public class LoginActivity extends NoBackBasaActivity implements
                 info.setPermissionInstitute(JsonObject
                         .getIntValue("user_institute_id_permission"));
                 info.setPermissionMajor(JsonObject
-                        .getIntValue("user_major_id_permission"));
+                        .getIntValue("user_major_permission"));
                 info.setPermissionClass(JsonObject
                         .getIntValue("user_class_id_permission"));
                 info.setPermissionEntryYear(JsonObject

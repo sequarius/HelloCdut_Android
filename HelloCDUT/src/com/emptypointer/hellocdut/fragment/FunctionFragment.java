@@ -1,8 +1,5 @@
 package com.emptypointer.hellocdut.fragment;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,15 +13,15 @@ import android.widget.Toast;
 
 import com.emptypointer.hellocdut.R;
 import com.emptypointer.hellocdut.activity.AddOnesActivity;
-import com.emptypointer.hellocdut.activity.BaseActivity;
 import com.emptypointer.hellocdut.activity.MainActivity;
-import com.emptypointer.hellocdut.activity.OldScheduleActivity;
-import com.emptypointer.hellocdut.activity.ScheduleActivity;
 import com.emptypointer.hellocdut.adapter.FunctionGridAdapter;
 import com.emptypointer.hellocdut.customer.EPApplication;
 import com.emptypointer.hellocdut.domain.FunctionItem;
 import com.emptypointer.hellocdut.utils.CommonUtils;
 import com.emptypointer.hellocdut.utils.GlobalVariables;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FunctionFragment extends Fragment {
     private GridView mGridView;
@@ -84,6 +81,7 @@ public class FunctionFragment extends Fragment {
                     if (EPApplication.getInstance().getUserStatus() > EPApplication.USER_STATUS_NORMAL) {
 
                         intent.setAction(GlobalVariables.ACTION_SCHEDULE);
+                        startActivity(intent);
                     } else {
                         ((MainActivity) getActivity()).createTObindDiglog(
                                 getString(R.string.str_aao), getActivity());
@@ -92,11 +90,13 @@ public class FunctionFragment extends Fragment {
                     break;
                 case 1:
                     intent.setAction(GlobalVariables.ACTION_QUERY);
+                    startActivity(intent);
                     break;
                 case 2:
                     if (EPApplication.getInstance().getUserLibStatus() > EPApplication.USER_STATUS_NORMAL) {
 
                         intent.setAction(GlobalVariables.ACTION_LIBRARY);
+                        startActivity(intent);
                     } else {
                         ((MainActivity) getActivity()).createTObindDiglog(
                                 getString(R.string.str_lib_card), getActivity());
@@ -107,6 +107,7 @@ public class FunctionFragment extends Fragment {
                     if (EPApplication.getInstance().getUserCampusStatus() > EPApplication.USER_STATUS_NORMAL) {
 
                         intent.setAction(GlobalVariables.ACTION_CAMPUS_CARD);
+                        startActivity(intent);
                     } else {
                         ((MainActivity) getActivity()).createTObindDiglog(
                                 getString(R.string.str_campus_card), getActivity());
@@ -118,14 +119,12 @@ public class FunctionFragment extends Fragment {
                     startActivity(intent);
                     break;
                 default:
+                    CommonUtils.showCustomToast(Toast.makeText(getActivity(),
+                            "功能将在正式版开放！", Toast.LENGTH_LONG));
                     break;
             }
-            if (intent.getAction() != null || intent.getClass() != null) {
-                startActivity(intent);
-            } else {
-                CommonUtils.showCustomToast(Toast.makeText(getActivity(),
-                        "功能将在正式版开放！", Toast.LENGTH_LONG));
-            }
+
+
         }
 
     }

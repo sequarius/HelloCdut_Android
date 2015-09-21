@@ -268,9 +268,9 @@ public class LibraryOnBorrowFragment extends Fragment {
                 String returnTime = object.getString("returnTime");
                 String borrowTime = object.getString("borrowTime");
                 String renewTime = object.getString("renewTime");
-                String indexID = object.getString("indexCode");
+                String indexID = object.getString("bookIndexCode");
                 String location = object.getString("bookLocation");
-                String renewURL = object.getString("renewHref");
+                String renewURL = object.getString("bookRenewHref");
 
                 LibBooksItem item = new LibBooksItem(title, id, borrowTime,
                         returnTime, location, indexID, renewURL, renewTime);

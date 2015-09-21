@@ -184,17 +184,18 @@ public class QueryBookActivity extends BaseActivity {
             }
         });
 
-        mListView.setOnItemClickListener(new OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // TODO Auto-generated method stub
-                new QueryDetailTask().execute(mItems.get(position)
-                        .getHrefIndex());
-
-            }
-        });
+//        mListView.setOnItemClickListener(new OnItemClickListener() {
+//
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                                    int position, long id) {
+//                // TODO Auto-generated method stub
+//                if()
+//                new QueryDetailTask().execute(mItems.get(position)
+//                        .getHrefIndex());
+//
+//            }
+//        });
 
     }
 

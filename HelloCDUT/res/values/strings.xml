@@ -413,6 +413,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="str_account_mail_stu_id">帐号/学号/邮箱</string>
     <string name="str_major_key_word">专业关键字</string>
+    <string name="str_over_dead_line">已超期</string>
 
 
 </resources>

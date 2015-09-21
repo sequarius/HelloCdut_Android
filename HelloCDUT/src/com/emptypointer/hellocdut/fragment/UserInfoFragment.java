@@ -104,12 +104,12 @@ public class UserInfoFragment extends Fragment implements OnClickListener {
                 break;
 
             case R.id.layout_user_center_user_collection:
-                CommonUtils.showCustomToast(Toast.makeText(getActivity(), "收藏功能将在正式版开放！", Toast.LENGTH_LONG));
+                CommonUtils.showCustomToast(Toast.makeText(getActivity(), "收藏功能尚未开放！", Toast.LENGTH_LONG));
 //			intent.setAction(GlobalVariables.ACTION_COLLECTIONMANAGE);
                 break;
 
             case R.id.layout_user_center_user_exam:
-                CommonUtils.showCustomToast(Toast.makeText(getActivity(), "考试将在正式版开放！", Toast.LENGTH_LONG));
+                CommonUtils.showCustomToast(Toast.makeText(getActivity(), "考试功能尚未开放！", Toast.LENGTH_LONG));
 //			intent.setAction(GlobalVariables.ACTION_EXAMMANAGE);
                 break;
 

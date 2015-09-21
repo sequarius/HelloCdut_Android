@@ -38,7 +38,7 @@ public class UserInfoActivity extends BaseActivity implements OnClickListener {
 
     private static final String USER_ENTRANCE_YEAR = "user_entrance_year";
     private static final String USER_CLASS_ID = "user_class_id";
-    private static final String USER_MAJOR_ID = "user_major_id";
+    private static final String USER_MAJOR_ID = "user_major";
     private static final String USER_INSTITUTE_ID = "user_institute_id";
     private static final String USER_STU_NUM = "user_stu_num";
     private static final String USER_BIRTHDATE = "user_birthdate";

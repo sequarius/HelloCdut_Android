@@ -22,7 +22,10 @@ import com.emptypointer.hellocdut.utils.GlobalVariables;
 
 import org.apache.http.message.BasicNameValuePair;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LibBookOnBorrowAdapter extends LibBookHistoryAdapter {
@@ -66,18 +69,29 @@ public class LibBookOnBorrowAdapter extends LibBookHistoryAdapter {
         ((TextView) convertView.findViewById(R.id.textView_renew_time))
                 .setText(mContext.getString(R.string.str_format_renew_time,
                         item.getRenewTime()));
+        SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
+        Button btnReNew = (Button) convertView.findViewById(R.id.button_renew);
+        try {
+            long returnTimeMillis = fm.parse(item.getReturnTime()).getTime();
+            if (returnTimeMillis < System.currentTimeMillis()) {
+                btnReNew.setText(R.string.str_over_dead_line);
+                btnReNew.setEnabled(false);
+            } else {
+                btnReNew
+                        .setOnClickListener(new OnClickListener() {
 
-        ((Button) convertView.findViewById(R.id.button_renew))
-                .setOnClickListener(new OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                // TODO Auto-generated method stub
+                                new NetTask().execute(item.getRenewURL(), tvReturnTime,
+                                        strTitle);
+                            }
+                        });
+            }
 
-                    @Override
-                    public void onClick(View v) {
-                        // TODO Auto-generated method stub
-                        new NetTask().execute(item.getRenewURL(), tvReturnTime,
-                                strTitle);
-                    }
-                });
-        ;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         return convertView;
     }
 

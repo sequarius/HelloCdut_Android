@@ -48,7 +48,9 @@ public class EPJsonHttpBaseResponseHandler extends JsonHttpResponseHandler {
     @Override
     public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
         super.onFailure(statusCode, headers, throwable, errorResponse);
-        CommonUtils.customToast(mContext.getString(R.string.message_weak_internet) + ":" + statusCode, mContext, true);
+        if (mContext!=null) {
+            CommonUtils.customToast(mContext.getString(R.string.message_weak_internet) + ":" + statusCode, mContext, true);
+        }
     }
 
 

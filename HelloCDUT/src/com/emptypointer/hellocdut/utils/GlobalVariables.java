@@ -14,7 +14,7 @@ public class GlobalVariables {
 //	public static final String SERVICE_HOST_QUERYSYSTEM="http://www.hellocdut.com/api/pointer/empty/queryApiTest/queryPro.php";
 //	public static final String SERVICE_HOST_UPDATE="http://www.hellocdut.com/api/pointer/empty/queryUpdate/queryPro.php";
 //	public static final String SERVICE_HOST_CAMPUS_CARD="http://www.hellocdut.com/api/pointer/empty/queryCampusInfo/queryPro.php";
-    public static final String SERVICE_HOST= "http://121.42.11.20/test/api/";
+    public static final String SERVICE_HOST= "http://www.hellocdut.com/api/release/index.php";
 
     public static final String SERVICE_HOST_USER_SYSTEM = SERVICE_HOST;
     public static final String SERVICE_HOST_BIND_SYSTEM = SERVICE_HOST;

@@ -87,19 +87,20 @@
     <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="android-support-v7-recyclerview" level="project" />
-    <orderEntry type="library" exported="" name="android-support-v4" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-21.0.0" level="project" />
     <orderEntry type="library" exported="" name="systembartint-1.0.4" level="project" />
     <orderEntry type="library" exported="" name="qiniu-android-sdk-7.0.1" level="project" />
-    <orderEntry type="library" exported="" name="android-pdfview-1.0.4" level="project" />
-    <orderEntry type="library" exported="" name="crashreport-1.2.3.8" level="project" />
     <orderEntry type="library" exported="" name="android-viewbadger" level="project" />
     <orderEntry type="library" exported="" name="fastjson-1.1.43.android" level="project" />
     <orderEntry type="library" exported="" name="ultra-ptr-1.0.9" level="project" />
-    <orderEntry type="library" exported="" name="baidumapapi_v3_2_0" level="project" />
-    <orderEntry type="library" exported="" name="easemobchat_2.1.7" level="project" />
-    <orderEntry type="library" exported="" name="universal-image-loader-1.9.3" level="project" />
     <orderEntry type="library" exported="" name="android-async-http-1.4.6" level="project" />
+    <orderEntry type="library" exported="" name="easemobchat_2.1.7" level="project" />
     <orderEntry type="library" exported="" name="locSDK_3.3" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-21.0.0" level="project" />
+    <orderEntry type="library" exported="" name="android-pdfview-1.0.4" level="project" />
+    <orderEntry type="library" exported="" name="crashreport-1.2.3.8" level="project" />
+    <orderEntry type="library" exported="" name="baidumapapi_v3_2_0" level="project" />
+    <orderEntry type="library" exported="" name="universal-image-loader-1.9.3" level="project" />
     <orderEntry type="module" module-name="library" exported="" />
     <orderEntry type="module" module-name="social_sdk_library_project" exported="" />
     <orderEntry type="module" module-name="viewpagerIndicator" exported="" />

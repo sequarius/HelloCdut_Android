@@ -19,6 +19,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -69,6 +70,7 @@ import org.json.JSONException;
 
 public class MainActivity extends NoBackBasaActivity {
     private static final String PRE_LAST_NOTIFY_ID = "last_notify_id";
+    private static final String TAG = "MainActivity";
     private boolean isConflictDialogShow;
     public static final String CACHE_SCHEDULED_TASK = "main_scheduled_task";
     private UserDao mUserDao;
@@ -197,7 +199,7 @@ public class MainActivity extends NoBackBasaActivity {
         super.onResume();
         updateUnreadLabel();
         updateUnreadAddressLable();
-        loadNotifyFromServer();
+//        loadNotifyFromServer();
         if (!isConflict) {
             EMChatManager.getInstance().activityResumed();
         }
@@ -212,7 +214,9 @@ public class MainActivity extends NoBackBasaActivity {
             if (cache != null) {
                 time = Long.valueOf(cache.getDate());
             }
-            if (System.currentTimeMillis() - time > 86400000) {
+            long timediffer = System.currentTimeMillis() - time;
+            Log.i(TAG,"timediffer=="+timediffer);
+            if (timediffer > 86400000) {
                 new Thread() {
 
                     @Override

@@ -18,6 +18,7 @@ import com.emptypointer.hellocdut.utils.CommonUtils;
 import com.emptypointer.hellocdut.utils.GlobalVariables;
 import com.emptypointer.hellocdut.utils.StringChecker;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -68,9 +69,14 @@ public class BindBasicFragment extends Fragment {
         return view;
     }
 
+    @SuppressLint("ValidFragment")
     public BindBasicFragment(String bindAction) {
         super();
         this.bindAction = bindAction;
+    }
+
+    public BindBasicFragment() {
+        super();
     }
 
     private void bind() {

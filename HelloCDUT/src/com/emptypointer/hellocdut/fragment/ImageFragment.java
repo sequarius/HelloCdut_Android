@@ -3,6 +3,7 @@ package com.emptypointer.hellocdut.fragment;
 import com.emptypointer.hellocdut.R;
 import com.emptypointer.hellocdut.activity.GuideActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,9 +19,14 @@ public class ImageFragment extends Fragment {
 
     private int mImageID;
 
+    @SuppressLint("ValidFragment")
     public ImageFragment(int mImageID) {
         super();
         this.mImageID = mImageID;
+    }
+
+    public ImageFragment() {
+        super();
     }
 
     @Override

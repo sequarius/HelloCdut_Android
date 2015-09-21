@@ -525,7 +525,9 @@ public class EPApplication extends Application {
      */
     public void logout() {
         // 先调用sdk logout，在清理app中自己的数据
-        EMChatManager.getInstance().logout();
+        if(EMChat.getInstance().isLoggedIn()) {
+            EMChatManager.getInstance().logout();
+        }
         EPDataBaseHelper.getInstance(applicationContext).closeDB();
         // 清空队列所有请求
         EPHttpQueueService.getInstance(applicationContext).clearAllTask();
