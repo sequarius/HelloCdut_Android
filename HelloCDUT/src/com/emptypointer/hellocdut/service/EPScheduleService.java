@@ -1,18 +1,16 @@
 package com.emptypointer.hellocdut.service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import com.emptypointer.hellocdut.dao.ScheduleDao;
 import com.emptypointer.hellocdut.domain.Course;
 import com.emptypointer.hellocdut.utils.CommonUtils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class EPScheduleService {
     private static final String TAG = "EPScheduleService";

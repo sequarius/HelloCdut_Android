@@ -154,24 +154,7 @@ public class BindBasicFragment extends Fragment {
             mDialog.dismiss();
             if (result) {
                 Log.i(TAG, mObject.toString());
-                if (bindAction.equals(ACTION_BIND_AAO)) {
-                    EPApplication.getInstance().setUserStatus(
-                            EPApplication.USER_STATUS_CERTIFICATE);
-                    UserInfo info = UserInfo.getInstance(getActivity());
-                    info.setRealName(mObject.getString("user_real_name"));
-                    info.setGender(mObject.getIntValue("user_gender"));
-                    info.setBirthDate(mObject.getString("user_birthdate"));
-                    info.setStudentID(mObject.getString("user_stu_id"));
-                    info.setInstituteName(mObject.getString("user_institute"));
-                    info.setMajorName(mObject.getString("user_major"));
-                    info.setClassID(mObject.getString("user_class_id"));
-                    info.setEntryYear(mObject.getString("user_entrance_year"));
 
-                } else if (bindAction.equals(ACTION_BIND_LIB)) {
-                    EPApplication.getInstance().setUserLibStatus(
-                            EPApplication.USER_STATUS_CERTIFICATE);
-
-                }
                 CommonUtils.showCustomToast(Toast.makeText(getActivity(), mMessage, Toast.LENGTH_SHORT)
                 );
                 getActivity().finish();
