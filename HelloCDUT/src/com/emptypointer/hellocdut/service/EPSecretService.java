@@ -21,13 +21,7 @@ public class EPSecretService {
      * 公钥
      */
     private static final String RSA_PUBLICE =
-            "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDbESgubbi3LEUxYBJgzQyGHlmC"
-                    + "\r"
-                    + "+Y64owSgyW2j2dBnI4MqTMAXGNvxc6vUvRdJtABYJCX+8+kHsqfjpnBlGPpLIHBK"
-                    + "\r"
-                    + "XPXaGaKewoP+EA0TEQkeXBJU6UhshBWcPkHsBraXKn+ktKEmElU/PcX34D6wZWuY"
-                    + "\r"
-                    + "/GYPyw4GXrUm4wF5yQIDAQAB";
+            "";
     private static final String ALGORITHM = "RSA";
 
     /**
